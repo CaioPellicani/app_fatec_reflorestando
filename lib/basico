@@ -1,0 +1,38 @@
+ 
+     var scaffoldKey = GlobalKey<ScaffoldState>();
+ 
+    return Scaffold(
+      key: scaffoldKey,
+
+
+      appBar: AppBar( 
+          title: Text("nome"),
+      ),
+      
+      appBar: AppBar(
+        title: Text("nome"),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () { Scaffold.of(context).openDrawer(); },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
+        ),
+      ),
+
+      drawer: Drawer(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              botaoSimples("Sobre o desenvolvedor", '/tela_01', context)
+            ],
+          ),
+        ),
+      ),
+      drawerEnableOpenDragGesture: false,
+
+      body: Container(),
+    );
