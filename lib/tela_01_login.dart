@@ -22,7 +22,9 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
     return Scaffold(
       key: scaffoldKey,
 
-      body: Container( child: 
+      body: 
+        
+        Container( child: 
         Column(
           mainAxisAlignment: MainAxisAlignment.center, 
           children: [
@@ -36,7 +38,8 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
             ),
             caixaTexto('Usuário', txtUsuario),
             caixaTexto('Senha', txtSenha),
-
+            botaoLogin(context, scaffoldKey, txtUsuario, txtSenha),
+            /*
             //INICIO BOTÃO SENHA
             Container(
               padding: EdgeInsets.only(top: 40),
@@ -46,24 +49,25 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
                 ),
                 color: Theme.of(context).primaryColor,
                 onPressed: (){
-                  if( validarUsuario( txtUsuario, txtSenha ) ){
+                  if( txtUsuario.text == 'Caio' ){
                     Navigator.pushNamed(context, '/tela_03' );
                   }
                   else{
-                    scaffoldKey.currentState.showSnackBar(
-                      SnackBar(
-                        content: Text('Usuário ou Senha inválida'),
-                        duration: Duration(seconds: 3),
-                      ),
-                    );  
+                    scaffoldKey.currentState.showSnackBar( senhaInvalida );
                   }
                 }
               ),
             ),
-            //FINAL BOTÃO SENHA
+            //FINAL BOTÃO SENHA*/
           ]    
         )
       ),
     );
   }
 }
+
+final senhaInvalida = SnackBar(
+  content: Text('Usuário inválida' ),
+  duration: Duration(seconds: 3),
+);
+
