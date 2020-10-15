@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
+import 'minhas_funcoes.dart';
 
 class Tela_01_Login extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
     
     var txtUsuario = TextEditingController();
     var txtSenha = TextEditingController();
+    var usuario = 'Caio';
     var scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -34,7 +36,31 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
             ),
             caixaTexto('Usuário', txtUsuario),
             caixaTexto('Senha', txtSenha),
-            botaoSimples('Entrar', '/tela_03', context),
+
+            //INICIO BOTÃO SENHA
+            Container(
+              padding: EdgeInsets.only(top: 40),
+              child: RaisedButton(
+                child: Text( 'Entrar', 
+                  style: TextStyle(color: Colors.white, fontSize: 18),
+                ),
+                color: Theme.of(context).primaryColor,
+                onPressed: (){
+                  if( validarUsuario( txtUsuario, txtSenha ) ){
+                    Navigator.pushNamed(context, '/tela_03' );
+                  }
+                  else{
+                    scaffoldKey.currentState.showSnackBar(
+                      SnackBar(
+                        content: Text('Usuário ou Senha inválida'),
+                        duration: Duration(seconds: 3),
+                      ),
+                    );  
+                  }
+                }
+              ),
+            ),
+            //FINAL BOTÃO SENHA
           ]    
         )
       ),

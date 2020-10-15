@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main.dart';
+import 'minhas_funcoes.dart';
 
 Widget caixaTexto(texto, controle){
   return Container(
