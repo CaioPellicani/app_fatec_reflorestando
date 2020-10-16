@@ -5,6 +5,8 @@ import 'tela_02_sobre.dart';
 import 'tela_03_menu.dart';
 import 'tela_04_bioma.dart';
 
+var scaffoldKey = GlobalKey<ScaffoldState>();
+
 void main() {
   runApp(
     MaterialApp(

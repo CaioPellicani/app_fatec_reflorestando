@@ -15,7 +15,8 @@ Widget caixaTexto(texto, controle){
   );
 }
 
-Widget botaoSimples( texto, tela, contexto ){
+Widget botaoSimples( texto, tela, contexto, bool ativo ){
+
   return Container(
     padding: EdgeInsets.only(top: 40),
     child: RaisedButton(
@@ -23,9 +24,7 @@ Widget botaoSimples( texto, tela, contexto ){
         texto, style: styleBotoes,
       ),
       color: Theme.of(contexto).primaryColor,
-      onPressed: (){
-        Navigator.pushNamed(contexto, tela );
-      }
+      onPressed: ativarBotao(ativo, contexto, tela)
     ),
   );
 }
@@ -76,8 +75,8 @@ Widget menuBarra(contexto){
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          botaoSimples("Voltar ao Menu", '/tela_03', contexto),
-          botaoSimples("Sobre o desenvolvedor", '/tela_02', contexto)
+          botaoSimples("Voltar ao Menu", '/tela_03', contexto, true),
+          botaoSimples("Sobre o desenvolvedor", '/tela_02', contexto, true)
         ],
       ),
     ),

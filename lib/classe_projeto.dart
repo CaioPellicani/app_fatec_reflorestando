@@ -1,16 +1,14 @@
-import 'dart:ffi';
-
-class Projeto{
+class ProjetoReflorestamento{
 
   String bioma;
   bool margemDeRio;
   bool topoDeMorro;
-  Float percentDeclividade;
-  Float percentArido;
-  Float percentUmido;
-  Float percentMisto;
-  Float areaTotal;
-  Float distanciaCovas;
+  double percentDeclividade;
+  double percentArido;
+  double percentUmido;
+  double percentMisto;
+  double areaTotal;
+  double distanciaCovas;
   List<String> especies = [];
 
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/material/icons.dart';
 import 'package:flutter/src/material/material_localizations.dart';
+import 'main.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
 
@@ -11,10 +12,9 @@ class Tela_04_bioma extends StatefulWidget {
 
 class _Tela_04_biomaState extends State<Tela_04_bioma>{
 
-  Projeto o_MeuProjeto = Projeto();
-  var scaffoldKey = GlobalKey<ScaffoldState>();
+  ProjetoReflorestamento o_MeuReflorestamento = ProjetoReflorestamento();
   List<String> biomas = [];
-  String txtBioma = 'Amazônia';
+  String txtBioma;
 
   @override
   void initState(){
@@ -24,6 +24,7 @@ class _Tela_04_biomaState extends State<Tela_04_bioma>{
     biomas.add( "Mata Atlântica");
 
     super.initState();
+    txtBioma = biomas[0];
   }
 
   Widget build(BuildContext context) {
