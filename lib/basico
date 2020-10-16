@@ -19,3 +19,13 @@ import 'classe_projeto.dart';
 
       body: Container(),
     );
+
+
+    ###############################
+
+  CheckboxListTile(
+    title: Text("title text"),
+    value: checkedValue,
+    onChanged: (newValue) { ... },
+    controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
+  )

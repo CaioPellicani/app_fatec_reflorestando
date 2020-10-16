@@ -13,8 +13,12 @@ class Tela_04_bioma extends StatefulWidget {
 class _Tela_04_biomaState extends State<Tela_04_bioma>{
 
   ProjetoReflorestamento o_MeuReflorestamento = ProjetoReflorestamento();
+
   List<String> biomas = [];
+  List<String> apps = [];
+
   String txtBioma;
+  String txtApp;
 
   @override
   void initState(){
@@ -23,8 +27,14 @@ class _Tela_04_biomaState extends State<Tela_04_bioma>{
     biomas.add( "Pantanal" );
     biomas.add( "Mata Atlântica");
 
+    apps.add( "Margem de Rio" );
+    apps.add( "Nascente" );
+    apps.add( "Topo de Morro" );
+    apps.add( "Não Especifico" );
+
     super.initState();
     txtBioma = biomas[0];
+    txtApp = apps[0];
   }
 
   Widget build(BuildContext context) {
@@ -33,35 +43,23 @@ class _Tela_04_biomaState extends State<Tela_04_bioma>{
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
 
-      body: Container( 
-        
+      body: Container(  
         child: Center(
-          child: DropdownButton<String>(
-            value: txtBioma,
-            icon: Icon(Icons.arrow_drop_down),
-            iconSize: 24,
-            elevation: 16,
-            underline: Container(
-              height: 2,
-            ),
-
-
-            onChanged: (String novoValor) {
-              setState(() {
-                txtBioma = novoValor;
-              });
-            },
-
-            items: biomas.map((String bioma) {
-                return DropdownMenuItem<String>(
-                  value: bioma,
-                  child: Text(bioma),
-                );
-              }
-            ).toList(),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            //padding: EdgeInsets.all( 10 ),
+            //shrinkWrap: true,
+            children: [
+              SizedBox( height: 20 ),
+              DropBox("Biomas", txtBioma, biomas),
+              SizedBox( height: 60 ),
+              DropBox("Tipo", txtApp, apps ),
+              SizedBox( height: 60 ),
+            ],
           ),
         ),
-      ),
+      ),  
     );
   }
 }
+

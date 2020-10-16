@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'minhas_funcoes.dart';
 
-var styleBotoes = TextStyle(color: Colors.white, fontSize: 18);
+TextStyle styleBotoes = TextStyle(color: Colors.white, fontSize: 18);
 
 Widget caixaTexto(texto, controle){
   return Container(
@@ -82,3 +82,58 @@ Widget menuBarra(contexto){
     ),
   );
 }
+
+class DropBox extends StatefulWidget {
+  List<String> lista;
+  String label;
+  String valorAtual;
+
+  DropBox( String _label, String _valorAtual, List<String> _lista ){
+    this.label = _label;
+    this.valorAtual = _valorAtual;
+    this.lista = _lista;
+  }
+
+  @override
+  _DropBoxState createState() => _DropBoxState( label, valorAtual,lista );
+}
+
+class _DropBoxState extends State<DropBox>{
+  List<String> lista;
+  String label;
+  String valorAtual;
+
+    _DropBoxState( String _label, String _valorAtual, List<String> _lista  ){
+    this.label = _label;
+    this.valorAtual = _valorAtual;
+    this.lista = _lista;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Flexible(
+      child: DropdownButtonFormField(
+          value: valorAtual,
+          decoration: InputDecoration(
+              contentPadding: EdgeInsets.all( 20 ),
+              labelStyle: TextStyle(),
+              labelText: label),
+        
+        onChanged: (String novoValor) {
+          setState(() {
+            valorAtual = novoValor;
+          });
+        },
+
+        items: this.lista.map((String bioma) {
+            return DropdownMenuItem<String>(
+              value: bioma,
+              child: Text(bioma),
+            );
+          }
+        ).toList(),
+      ),
+    );
+  }
+}
+
