@@ -57,6 +57,7 @@ Widget botaoLogin( contexto, scaffoldKey, usuario, senha ){
 Widget barraPadrao(String texto){
   return AppBar(
     title: Text(texto),
+    centerTitle: true,
     leading: Builder(
       builder: (BuildContext context) {
         return IconButton(

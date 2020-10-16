@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/material/icons.dart';
 import 'package:flutter/src/material/material_localizations.dart';
 import 'meus_widgets.dart';
+import 'classe_projeto.dart';
 
 ###########################################################
 
@@ -12,29 +13,8 @@ import 'meus_widgets.dart';
  
     return Scaffold(
       key: scaffoldKey,      
-      appBar: AppBar(
-        title: Text("nome"),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () { Scaffold.of(context).openDrawer(); },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
-      ),
-
-      drawer: Drawer(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              botaoSimples("Sobre o desenvolvedor", '/tela_01', context)
-            ],
-          ),
-        ),
-      ),
+         appBar: barraPadrao("nome da tela"),
+      drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
 
       body: Container(),

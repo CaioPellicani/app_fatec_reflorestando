@@ -17,14 +17,17 @@ class Tela_03_Menu extends StatelessWidget {
       drawerEnableOpenDragGesture: false,
 
       body: Container(
-        child: ListView(
-          padding: EdgeInsets.all( 10 ),
-          children: [
-            botaoSimples('Reflorestamento', '/tela_04', context),
-            botaoSimples('Agrofloresta', '', context),
-            botaoSimples('Silvopastoril', '', context),
-            botaoSimples('Arboriazação Urbana', '', context),
-          ],
+        child: Center(
+          child: ListView(
+            padding: EdgeInsets.all( 10 ),
+            shrinkWrap: true,
+            children: [
+              botaoSimples('Reflorestamento', '/tela_04', context),
+              botaoSimples('Agrofloresta', '', context),
+              botaoSimples('Silvopastoril', '', context),
+              botaoSimples('Arboriazação Urbana', '', context),
+            ],
+          ),
         ),
       )
     );   

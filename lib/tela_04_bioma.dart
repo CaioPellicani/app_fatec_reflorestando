@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/material/icons.dart';
 import 'package:flutter/src/material/material_localizations.dart';
 import 'meus_widgets.dart';
+import 'classe_projeto.dart';
 
 class Tela_04_bioma extends StatefulWidget {
   @override
@@ -10,8 +11,9 @@ class Tela_04_bioma extends StatefulWidget {
 
 class _Tela_04_biomaState extends State<Tela_04_bioma>{
 
+  Projeto o_MeuProjeto = Projeto();
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  var biomas = List<String>();
+  List<String> biomas = [];
   String txtBioma = 'Amazônia';
 
   @override
@@ -31,6 +33,7 @@ class _Tela_04_biomaState extends State<Tela_04_bioma>{
       drawerEnableOpenDragGesture: false,
 
       body: Container( 
+        
         child: Center(
           child: DropdownButton<String>(
             value: txtBioma,
@@ -48,13 +51,13 @@ class _Tela_04_biomaState extends State<Tela_04_bioma>{
               });
             },
 
-            items: <String>[ 'Amazônia', "Cerrado", "Pantanal", "Mata Atlântica" ].map<DropdownMenuItem<String>>((String valor) {
+            items: biomas.map((String bioma) {
                 return DropdownMenuItem<String>(
-                  value: valor,
-                  child: Text(valor),
+                  value: bioma,
+                  child: Text(bioma),
                 );
-              })
-              .toList(),
+              }
+            ).toList(),
           ),
         ),
       ),
