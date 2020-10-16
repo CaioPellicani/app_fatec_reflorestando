@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'minhas_funcoes.dart';
+import 'classe_projeto.dart';
 
 TextStyle styleBotoes = TextStyle(color: Colors.white, fontSize: 18);
 
@@ -26,6 +27,17 @@ Widget botaoSimples( texto, tela, contexto, bool ativo ){
       color: Theme.of(contexto).primaryColor,
       onPressed: ativarBotao(ativo, contexto, tela)
     ),
+  );
+}
+
+Widget botaoProximo( String tela, contexto, oProjeto  ){
+  return FloatingActionButton(
+    onPressed: (){
+      Navigator.pushNamed(contexto, tela, arguments: oProjeto );
+    },
+    tooltip: 'Próximo',
+    child: Icon(Icons.arrow_right_sharp, size: 40,),
+    backgroundColor: Theme.of(contexto).primaryColor,
   );
 }
 

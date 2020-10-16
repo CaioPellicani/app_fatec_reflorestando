@@ -4,6 +4,7 @@ import 'tela_01_login.dart';
 import 'tela_02_sobre.dart';
 import 'tela_03_menu.dart';
 import 'tela_04_bioma.dart';
+import 'tela_05_terreno.dart';
 
 var scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -15,7 +16,7 @@ void main() {
 
       theme: ThemeData(
         primaryColor: Colors.green[900],
-        backgroundColor: Colors.green[100],
+        backgroundColor: Colors.green[200],
         fontFamily: 'Roboto',
         
       ),
@@ -25,7 +26,8 @@ void main() {
        '/tela_01' : (context) => Tela_01_Login(),
        '/tela_02' : (context) => Tela_02_Sobre(),
        '/tela_03' : (context) => Tela_03_Menu(),
-       '/tela_04' : (context) => Tela_04_bioma(),
+       '/tela_04' : (context) => Tela_04_Bioma(),
+       '/tela_05' : (context) => Tela_05_Terreno(),
       }
     )
   );

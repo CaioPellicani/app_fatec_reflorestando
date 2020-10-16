@@ -16,6 +16,7 @@ import 'classe_projeto.dart';
          appBar: barraPadrao("nome da tela"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
+      floatingActionButton: botaoProximo( '/Tela_0', context),
 
       body: Container(),
     );
@@ -29,3 +30,14 @@ import 'classe_projeto.dart';
     onChanged: (newValue) { ... },
     controlAffinity: ListTileControlAffinity.leading,  //  <-- leading Checkbox
   )
+
+  Radio<String>(
+    value: modeloFlorestal[0],//SingingCharacter.jefferson,
+    activeColor: Theme.of(context).primaryColor,
+    groupValue: radioGrupo,
+    onChanged: (novoValor){
+      setState(() {
+        radioGrupo = novoValor;
+      });
+    },
+  ),

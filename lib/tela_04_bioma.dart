@@ -5,14 +5,14 @@ import 'main.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
 
-class Tela_04_bioma extends StatefulWidget {
+class Tela_04_Bioma extends StatefulWidget {
   @override
-  _Tela_04_biomaState createState() => _Tela_04_biomaState();
+  _Tela_04_BiomaState createState() => _Tela_04_BiomaState();
 }
 
-class _Tela_04_biomaState extends State<Tela_04_bioma>{
+class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
 
-  ProjetoReflorestamento o_MeuReflorestamento = ProjetoReflorestamento();
+  ProjetoReflorestamento oMeuReflorestamento = ProjetoReflorestamento();
 
   List<String> biomas = [];
   List<String> apps = [];
@@ -42,13 +42,12 @@ class _Tela_04_biomaState extends State<Tela_04_bioma>{
       appBar: barraPadrao("Bioma e Terreno"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
+      floatingActionButton: botaoProximo( '/tela_05', context, oMeuReflorestamento),
 
       body: Container(  
         child: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            //padding: EdgeInsets.all( 10 ),
-            //shrinkWrap: true,
             children: [
               SizedBox( height: 20 ),
               DropBox("Biomas", txtBioma, biomas),
