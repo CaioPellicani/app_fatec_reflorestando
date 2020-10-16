@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
 
-bool validarUsuario( var usuario, var senha ){
+bool validarUsuario( String usuario, String senha ){
   var usuarioCerto = 'Caio';
-  if( ( usuario.text == usuarioCerto) ){
-    return true;
-  }
-  else{
+  if( ( usuario != usuarioCerto) ){
     return false;
   }
+  return true;
 }

@@ -42,22 +42,17 @@ class _Tela_03_MenuState extends State<Tela_03_Menu>{
       ),
       drawerEnableOpenDragGesture: false,
 
-      body: Container(child: 
-        
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Column(
-              children: [
-                botaoSimples('Reflorestamento', '', context),
-                botaoSimples('Agrofloresta', '', context),
-                botaoSimples('Silvopastoril', '', context),
-                botaoSimples('Arboriazação Urbana', '', context),
-              ],
-            )
-          ]
-        ),
-      ),
+      body: 
+      ListView(
+        padding: EdgeInsets.all( 10 ),
+        children: [
+          botaoSimples('Reflorestamento', '', context),
+          botaoSimples('Agrofloresta', '', context),
+          botaoSimples('Silvopastoril', '', context),
+          botaoSimples('Arboriazação Urbana', '', context),
+        ],
+      )
     );   
   }
 }
+

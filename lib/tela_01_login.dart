@@ -39,35 +39,10 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
             caixaTexto('Usuário', txtUsuario),
             caixaTexto('Senha', txtSenha),
             botaoLogin(context, scaffoldKey, txtUsuario, txtSenha),
-            /*
-            //INICIO BOTÃO SENHA
-            Container(
-              padding: EdgeInsets.only(top: 40),
-              child: RaisedButton(
-                child: Text( 'Entrar', 
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-                color: Theme.of(context).primaryColor,
-                onPressed: (){
-                  if( txtUsuario.text == 'Caio' ){
-                    Navigator.pushNamed(context, '/tela_03' );
-                  }
-                  else{
-                    scaffoldKey.currentState.showSnackBar( senhaInvalida );
-                  }
-                }
-              ),
-            ),
-            //FINAL BOTÃO SENHA*/
           ]    
         )
       ),
     );
   }
 }
-
-final senhaInvalida = SnackBar(
-  content: Text('Usuário inválida' ),
-  duration: Duration(seconds: 3),
-);
 

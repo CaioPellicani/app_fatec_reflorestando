@@ -39,7 +39,7 @@ Widget botaoLogin( contexto, scaffoldKey, usuario, senha ){
       ),
       color: Theme.of(contexto).primaryColor,
       onPressed: (){
-        if( validarUsuario(usuario, senha) )
+        if( validarUsuario(usuario.text, senha.text) )
           Navigator.pushNamed(contexto, '/tela_03' );
         else
           scaffoldKey.currentState.showSnackBar( senhaInvalida );

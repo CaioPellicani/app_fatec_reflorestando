@@ -16,7 +16,7 @@ void main() {
         
       ),
 
-      initialRoute: '/tela_01',
+      initialRoute: '/tela_03',
       routes: {
        '/tela_01' : (context) => Tela_01_Login(),
        '/tela_02' : (context) => Tela_02_Sobre(),
