@@ -36,7 +36,7 @@ Widget botaoProximo( String tela, contexto, oProjeto  ){
       Navigator.pushNamed(contexto, tela, arguments: oProjeto );
     },
     tooltip: 'Próximo',
-    child: Icon(Icons.arrow_right_sharp, size: 40,),
+    child: Icon(Icons.arrow_right, size: 40,),
     backgroundColor: Theme.of(contexto).primaryColor,
   );
 }
@@ -123,28 +123,100 @@ class _DropBoxState extends State<DropBox>{
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: DropdownButtonFormField(
-          value: valorAtual,
-          decoration: InputDecoration(
-              contentPadding: EdgeInsets.all( 20 ),
-              labelStyle: TextStyle(),
-              labelText: label),
-        
-        onChanged: (String novoValor) {
-          setState(() {
-            valorAtual = novoValor;
-          });
-        },
+    return DropdownButtonFormField(
+      value: valorAtual,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.all( 20 ),
+          labelStyle: TextStyle(),
+          labelText: label),
+      
+      onChanged: (String novoValor) {
+        setState(() {
+          valorAtual = novoValor;
+        });
+      },
 
-        items: this.lista.map((String bioma) {
-            return DropdownMenuItem<String>(
-              value: bioma,
-              child: Text(bioma),
-            );
-          }
-        ).toList(),
+      items: this.lista.map((String bioma) {
+          return DropdownMenuItem<String>(
+            value: bioma,
+            child: Text(bioma),
+          );
+        }
+      ).toList(),
+    );
+  }
+}
+
+//RadioGroup( "Modelo Florestal", modeloFlorestal )
+class RadioGroup extends StatefulWidget {
+  String nomeGrupo;
+  List<String> lista;
+
+  RadioGroup( String _nomeGrupo, List<String> _lista ){
+    this.nomeGrupo = _nomeGrupo;
+    this.lista = _lista;
+  }
+
+  @override
+  _RadioGroupState createState() => _RadioGroupState( nomeGrupo, lista );
+}
+
+class _RadioGroupState extends State<RadioGroup> {
+  String nomeGrupo;
+  List<String> lista;
+
+  _RadioGroupState( String _nomeGrupo, List<String> _lista ){
+    this.nomeGrupo = _nomeGrupo;
+    this.lista = _lista;
+  }
+  int radioGrupo;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all( 5 ),
+      margin: EdgeInsets.all( 20 ),
+      decoration: BoxDecoration(
+        border: Border.all(color: Theme.of(context).primaryColor, width: 1),
+        borderRadius: BorderRadius.all( Radius.circular(10)) 
       ),
+      child: Column(
+        children: [
+          Container(
+            child: Text( nomeGrupo, 
+              style: TextStyle( 
+                color:  Theme.of(context).primaryColor, 
+                fontSize: 20
+              ),
+            ),
+          ),
+          Center(
+            child: ListView.builder(
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              itemCount: lista.length,
+              itemBuilder: (context, index){ 
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Radio(
+                      activeColor: Theme.of(context).primaryColor,
+                      value: index ,
+                      groupValue: radioGrupo,
+                      onChanged: (index){
+                        radioGrupo = index;
+                        setState(() {});
+                      }
+                    ),
+                    Text( lista[index],style: TextStyle( fontSize: 20 ), ),
+                  ],
+                );  
+              }          
+            ),
+          ),
+        ],
+      )
+
     );
   }
 }
