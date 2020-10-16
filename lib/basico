@@ -1,14 +1,17 @@
- 
-     var scaffoldKey = GlobalKey<ScaffoldState>();
+import 'package:flutter/material.dart';
+import 'package:flutter/src/material/icons.dart';
+import 'package:flutter/src/material/material_localizations.dart';
+import 'meus_widgets.dart';
+
+###########################################################
+
+  var scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  Widget build(BuildContext context) {
  
     return Scaffold(
-      key: scaffoldKey,
-
-
-      appBar: AppBar( 
-          title: Text("nome"),
-      ),
-      
+      key: scaffoldKey,      
       appBar: AppBar(
         title: Text("nome"),
         leading: Builder(

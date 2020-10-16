@@ -13,18 +13,13 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
     var txtSenha = TextEditingController();
     var usuario = 'Caio';
     var scaffoldKey = GlobalKey<ScaffoldState>();
-
-  @override
-
   
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
 
-      body: 
-        
-        Container( child: 
+      body: Container( child: 
         Column(
           mainAxisAlignment: MainAxisAlignment.center, 
           children: [

@@ -3,13 +3,8 @@ import 'package:flutter/src/material/icons.dart';
 import 'package:flutter/src/material/material_localizations.dart';
 import 'meus_widgets.dart';
 
-class Tela_03_Menu extends StatefulWidget {
-  @override
-  _Tela_03_MenuState createState() => _Tela_03_MenuState();
-}
+class Tela_03_Menu extends StatelessWidget {
 
-class _Tela_03_MenuState extends State<Tela_03_Menu>{
- 
   var scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -17,42 +12,21 @@ class _Tela_03_MenuState extends State<Tela_03_Menu>{
     return Scaffold(
       key: scaffoldKey,
 
-      appBar: AppBar(
-        title: Text("Menu de Opções"),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              onPressed: () { Scaffold.of(context).openDrawer(); },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
-        ),
-      ),
-
-      drawer: Drawer(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              botaoSimples("Sobre o desenvolvedor", '/tela_02', context)
-            ],
-          ),
-        ),
-      ),
+      appBar: barraPadrao("Menu de Opções"),
+      drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
 
-      body: 
-      ListView(
-        padding: EdgeInsets.all( 10 ),
-        children: [
-          botaoSimples('Reflorestamento', '', context),
-          botaoSimples('Agrofloresta', '', context),
-          botaoSimples('Silvopastoril', '', context),
-          botaoSimples('Arboriazação Urbana', '', context),
-        ],
+      body: Container(
+        child: ListView(
+          padding: EdgeInsets.all( 10 ),
+          children: [
+            botaoSimples('Reflorestamento', '/tela_04', context),
+            botaoSimples('Agrofloresta', '', context),
+            botaoSimples('Silvopastoril', '', context),
+            botaoSimples('Arboriazação Urbana', '', context),
+          ],
+        ),
       )
     );   
   }
 }
-
