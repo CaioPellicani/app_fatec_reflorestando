@@ -33,8 +33,8 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
     apps.add( "Não Especifico" );
 
     super.initState();
-    txtBioma = biomas[0];
-    txtApp = apps[0];
+    //txtBioma = biomas[0];
+    //txtApp = apps[0];
   }
 
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
             children: [
               SizedBox( height: 20 ),
               DropBox("Biomas", txtBioma, biomas),
-              SizedBox( height: 60 ),
+              SizedBox( height: 100 ),
               DropBox("Tipo", txtApp, apps ),
               SizedBox( height: 60 ),
             ],

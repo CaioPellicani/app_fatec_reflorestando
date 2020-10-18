@@ -34,13 +34,19 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
          appBar: barraPadrao("Terreno e Modelo"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
-      floatingActionButton: botaoProximo( '/tela_05', context, oMeuReflorestamento),
+      floatingActionButton: botaoProximo( '/tela_06', context, oMeuReflorestamento),
 
-      body: Column(
-        children: [
-          caixaTexto("Area Total (ha)", txtArea),
-          RadioGroup( "Modelo Florestal", modeloFlorestal)
-        ],
+      body: Center(
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              caixaTexto("Area Total (ha)", txtArea),
+              SizedBox( height:  50,),
+              RadioGroup( "Modelo Florestal", modeloFlorestal)
+            ],
+          ),
+        ),
       ),
     );
   }

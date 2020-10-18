@@ -158,7 +158,7 @@ class RadioGroup extends StatefulWidget {
   }
 
   @override
-  _RadioGroupState createState() => _RadioGroupState( nomeGrupo, lista );
+  _RadioGroupState createState() => _RadioGroupState( nomeGrupo, lista);
 }
 
 class _RadioGroupState extends State<RadioGroup> {

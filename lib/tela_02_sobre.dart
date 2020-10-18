@@ -18,29 +18,35 @@ class Tela_02_Sobre extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [   
-              SizedBox( height: 30 ),
+              //SizedBox( height: 30 ),
               Container(
                 padding: EdgeInsets.all( 20 ),
                 decoration: BoxDecoration( 
                   shape: BoxShape.circle,
                 ),
-                child: Image.asset("imagens/Caio.png", scale: 1.5, ),
+                child: Image.asset("imagens/Caio.png", scale: 2, ),
               ),
               Container(
                 padding: EdgeInsets.all( 20 ),
                 margin: EdgeInsets.all(20),
-      
                 color: Theme.of(context).primaryColor,
                 child: Column(
                   children: [
-                    Text( "Nome: Caio Damasceno Pellicani\n",
+                    Text( "Desenvolvedor: Caio Damasceno Pellicani\n",
                       style: TextStyle( color: Colors.white, fontSize: 20, ),
                     ),
-                    Text( "\tGraduando em Analise e Desenvolvimento de Sistemas pela FATEC - Ribeirão Preto\n",
+                    Text( "\tGraduando em Analise e Desenvolvimento de Sistemas pela FATEC - Ribeirão Preto.\n",
                       style: TextStyle( color: Colors.white, fontSize: 15, ),
                       textAlign: TextAlign.justify,
                     ),
-                    Text( "\tFormado em Gestão Ambiental pela ESALQ-USP e tem por objetivo buscar alternativas para mitigar problemas de carater ambiental por meio de soluções tecnologicas\n",
+                    Text( "\tFormado em Gestão Ambiental pela ESALQ-USP e tem por objetivo buscar alternativas " + 
+                            "para mitigar problemas de carater ambiental por meio de soluções tecnologicas.\n",
+                      style: TextStyle( color: Colors.white, fontSize: 15, ),
+                      textAlign: TextAlign.justify,
+                    ),
+                    Text( "\tO presente aplicativo busca auxiliar o trabalho de tecnicos no momento da escolha das espécies " +
+                            "florestais que serão implementados em projetos de reflorestamento, e futuramente também para projetos " +
+                            "agroflorestais, silviopastoril e arborização urbana.\n",
                       style: TextStyle( color: Colors.white, fontSize: 15, ),
                       textAlign: TextAlign.justify,
                     ),
