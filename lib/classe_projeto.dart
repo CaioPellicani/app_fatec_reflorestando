@@ -1,5 +1,7 @@
+
 class ProjetoReflorestamento{
 
+  String nomeProjeto;
   String bioma;
   bool margemDeRio;
   bool topoDeMorro;
@@ -9,12 +11,15 @@ class ProjetoReflorestamento{
   double percentMisto;
   double areaTotal;
   double distanciaCovas;
-  List<String> especies = [];
+  List especies;
 
 
-  void definirEspecies(){
+  void carregarEspecies(String teste){
+    //especies.add( "Tabebuia" );
 
+    print( teste );
   }
+
 
   void exportar(){
 

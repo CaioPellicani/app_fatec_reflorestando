@@ -9,6 +9,7 @@ import 'tela_06_rel_preliminar.dart';
 import 'tela_07_rel_especies.dart';
 import 'tela_08_exportar.dart';
 
+const double valorPadding = 20;
 
 var scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -21,8 +22,7 @@ void main() {
       theme: ThemeData(
         primaryColor: Colors.green[900],
         backgroundColor: Colors.green[200],
-        fontFamily: 'Roboto',
-        
+        fontFamily: 'Roboto',        
       ),
 
       initialRoute: '/tela_01',

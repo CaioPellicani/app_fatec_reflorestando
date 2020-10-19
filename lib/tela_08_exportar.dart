@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/material_localizations.dart';
+import 'main.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
 
@@ -15,16 +14,27 @@ class _Tela_08_ExportarState extends State<Tela_08_Exportar>{
 
   @override
   Widget build(BuildContext context) {
-    var oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
+    ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
  
     return Scaffold(
       key: scaffoldKey,      
-         appBar: barraPadrao("Exportar Lista de Espécies"),
+         appBar: barraPadrao("Exportar Lista de Espécies em PDF"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
-      //floatingActionButton: botaoProximo( '/tela_07', context, oMeuReflorestamento),
 
-      body: Container(),
+      body: Container(
+        padding: EdgeInsets.all(valorPadding),
+        child: Center(
+          child: ListView( 
+            shrinkWrap: true,
+            children: [
+              botaoSimples("Email", "", context, false),
+              botaoSimples("WhatApp", "", context, false),
+              botaoSimples("Telegram", "", context, false),
+            ],
+          ),
+        )
+      ),
     );
   }
 }

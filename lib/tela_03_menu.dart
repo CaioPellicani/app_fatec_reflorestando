@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/material_localizations.dart';
 import 'main.dart';
 import 'meus_widgets.dart';
 
@@ -17,7 +15,7 @@ class Tela_03_Menu extends StatelessWidget {
       body: Container(
         child: Center(
           child: ListView(
-            padding: EdgeInsets.all( 10 ),
+            padding: EdgeInsets.all( valorPadding ),
             shrinkWrap: true,
             children: [
               botaoSimples('Reflorestamento', '/tela_04', context, true),

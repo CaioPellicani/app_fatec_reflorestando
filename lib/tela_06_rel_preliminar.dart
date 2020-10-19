@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/material_localizations.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
 
@@ -15,8 +13,8 @@ class _Tela_06_RelPreliminarState extends State<Tela_06_RelPreliminar> {
 
   @override
   Widget build(BuildContext context) {
-    var oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
- 
+    ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
+    
     return Scaffold(
       key: scaffoldKey,      
          appBar: barraPadrao("Relatório Preliminar"),

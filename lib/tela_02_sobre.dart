@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'main.dart';
 import 'meus_widgets.dart';
 
 class Tela_02_Sobre extends StatelessWidget {
@@ -20,15 +21,15 @@ class Tela_02_Sobre extends StatelessWidget {
             children: [   
               //SizedBox( height: 30 ),
               Container(
-                padding: EdgeInsets.all( 20 ),
+                padding: EdgeInsets.all( valorPadding ),
                 decoration: BoxDecoration( 
                   shape: BoxShape.circle,
                 ),
                 child: Image.asset("imagens/Caio.png", scale: 2, ),
               ),
               Container(
-                padding: EdgeInsets.all( 20 ),
-                margin: EdgeInsets.all(20),
+                padding: EdgeInsets.all( valorPadding ),
+                margin: EdgeInsets.all(valorPadding),
                 color: Theme.of(context).primaryColor,
                 child: Column(
                   children: [

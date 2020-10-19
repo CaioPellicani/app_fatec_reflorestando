@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/material/icons.dart';
-import 'package:flutter/src/material/material_localizations.dart';
-import 'main.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
 
@@ -13,6 +10,10 @@ class Tela_04_Bioma extends StatefulWidget {
 class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
 
   ProjetoReflorestamento oMeuReflorestamento = ProjetoReflorestamento();
+
+  var txtArido = TextEditingController();
+  var txtUmido = TextEditingController();
+  var txtMisto = TextEditingController();
 
   List<String> biomas = [];
   List<String> apps = [];
@@ -33,8 +34,6 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
     apps.add( "Não Especifico" );
 
     super.initState();
-    //txtBioma = biomas[0];
-    //txtApp = apps[0];
   }
 
   Widget build(BuildContext context) {
@@ -49,11 +48,11 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox( height: 20 ),
               DropBox("Biomas", txtBioma, biomas),
-              SizedBox( height: 100 ),
               DropBox("Tipo", txtApp, apps ),
-              SizedBox( height: 60 ),
+              caixaTexto("Pecentual de Solo Úmido", txtUmido, true ),
+              caixaTexto("Pecentual de Solo Árido", txtArido, true ),
+              caixaTexto("Pecentual de Solo Misto", txtMisto, true ),
             ],
           ),
         ),

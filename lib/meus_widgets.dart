@@ -1,13 +1,21 @@
 import 'package:flutter/material.dart';
 import 'minhas_funcoes.dart';
+import 'main.dart';
 import 'classe_projeto.dart';
 
 TextStyle styleBotoes = TextStyle(color: Colors.white, fontSize: 18);
 
-Widget caixaTexto(texto, controle){
+Widget caixaTexto(texto, controle, bool numerico){
+  var teclado;
+
+  if( numerico ){
+    teclado = TextInputType.number;
+  }
+
   return Container(
-    padding: EdgeInsets.all(20),
-      child: TextField(
+    padding: EdgeInsets.all(valorPadding),
+      child: TextFormField(
+        keyboardType: teclado,
         controller: controle,
         decoration: InputDecoration(
           labelText: texto,
@@ -19,7 +27,7 @@ Widget caixaTexto(texto, controle){
 Widget botaoSimples( texto, tela, contexto, bool ativo ){
 
   return Container(
-    padding: EdgeInsets.only(top: 40),
+    padding: EdgeInsets.only(top: ( valorPadding * 2 )),
     child: RaisedButton(
       child: Text( 
         texto, style: styleBotoes,
@@ -33,7 +41,9 @@ Widget botaoSimples( texto, tela, contexto, bool ativo ){
 Widget botaoProximo( String tela, contexto, oProjeto  ){
   return FloatingActionButton(
     onPressed: (){
-      Navigator.pushNamed(contexto, tela, arguments: oProjeto );
+      if ( tela != '' ){
+        Navigator.pushNamed(contexto, tela, arguments: oProjeto );
+      }
     },
     tooltip: 'Próximo',
     child: Icon(Icons.arrow_right, size: 40,),
@@ -43,7 +53,7 @@ Widget botaoProximo( String tela, contexto, oProjeto  ){
 
 Widget botaoLogin( contexto, scaffoldKey, usuario, senha ){
   return Container(
-    padding: EdgeInsets.only(top: 40),
+    padding: EdgeInsets.only(top: ( valorPadding * 2 )),
     child: RaisedButton(
       child: Text( 
         'Entrar', 
@@ -65,6 +75,14 @@ Widget botaoLogin( contexto, scaffoldKey, usuario, senha ){
   );
 }
 
+Widget aviso( String titulo, String texto ){
+  return AlertDialog(
+    title: Text(titulo, style: TextStyle(fontSize: 12)),
+    content: Text(texto, style: TextStyle(fontSize: 16)),
+  );
+}
+
+
 Widget barraPadrao(String texto){
   return AppBar(
     title: Text(texto),
@@ -75,6 +93,7 @@ Widget barraPadrao(String texto){
           icon: const Icon(Icons.menu),
           onPressed: () { Scaffold.of(context).openDrawer(); },
           tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          
         );
       },
     ),
@@ -88,7 +107,7 @@ Widget menuBarra(contexto){
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           botaoSimples("Voltar ao Menu", '/tela_03', contexto, true),
-          botaoSimples("Sobre o desenvolvedor", '/tela_02', contexto, true)
+          botaoSimples("Sobre o desenvolvedor", '/tela_02', contexto, true),
         ],
       ),
     ),
@@ -123,26 +142,29 @@ class _DropBoxState extends State<DropBox>{
 
   @override
   Widget build(BuildContext context) {
-    return DropdownButtonFormField(
-      value: valorAtual,
-      decoration: InputDecoration(
-          contentPadding: EdgeInsets.all( 20 ),
-          labelStyle: TextStyle(),
-          labelText: label),
-      
-      onChanged: (String novoValor) {
-        setState(() {
-          valorAtual = novoValor;
-        });
-      },
+    return Container(
+      padding: EdgeInsets.all(valorPadding),
+      child: DropdownButtonFormField(
+        value: valorAtual,
+        decoration: InputDecoration(
+            contentPadding: EdgeInsets.all( valorPadding ),
+            labelStyle: TextStyle(),
+            labelText: label),
+        
+        onChanged: (String novoValor) {
+          setState(() {
+            valorAtual = novoValor;
+          });
+        },
 
-      items: this.lista.map((String bioma) {
-          return DropdownMenuItem<String>(
-            value: bioma,
-            child: Text(bioma),
-          );
-        }
-      ).toList(),
+        items: this.lista.map((String bioma) {
+            return DropdownMenuItem<String>(
+              value: bioma,
+              child: Text(bioma),
+            );
+          }
+        ).toList(),
+      ),
     );
   }
 }
@@ -151,31 +173,36 @@ class _DropBoxState extends State<DropBox>{
 class RadioGroup extends StatefulWidget {
   String nomeGrupo;
   List<String> lista;
+  int posInicial;
 
-  RadioGroup( String _nomeGrupo, List<String> _lista ){
+  RadioGroup( String _nomeGrupo, List<String> _lista, int _posInicial ){
     this.nomeGrupo = _nomeGrupo;
     this.lista = _lista;
+    this.posInicial = _posInicial;
   }
 
   @override
-  _RadioGroupState createState() => _RadioGroupState( nomeGrupo, lista);
+  _RadioGroupState createState() => _RadioGroupState( nomeGrupo, lista, posInicial);
 }
 
 class _RadioGroupState extends State<RadioGroup> {
   String nomeGrupo;
   List<String> lista;
+  int posInicial;
 
-  _RadioGroupState( String _nomeGrupo, List<String> _lista ){
+  _RadioGroupState( String _nomeGrupo, List<String> _lista, int _posInicial ){
     this.nomeGrupo = _nomeGrupo;
     this.lista = _lista;
+    this.posInicial = _posInicial;
   }
-  int radioGrupo;
 
   @override
   Widget build(BuildContext context) {
+    int radioGrupo = posInicial;
+
     return Container(
-      padding: EdgeInsets.all( 5 ),
-      margin: EdgeInsets.all( 20 ),
+      padding: EdgeInsets.all( valorPadding ),
+      margin: EdgeInsets.all( valorPadding ),
       decoration: BoxDecoration(
         border: Border.all(color: Theme.of(context).primaryColor, width: 1),
         borderRadius: BorderRadius.all( Radius.circular(10)) 
