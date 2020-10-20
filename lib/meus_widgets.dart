@@ -5,25 +5,6 @@ import 'classe_projeto.dart';
 
 TextStyle styleBotoes = TextStyle(color: Colors.white, fontSize: 18);
 
-Widget caixaTexto(texto, controle, bool numerico){
-  var teclado;
-
-  if( numerico ){
-    teclado = TextInputType.number;
-  }
-
-  return Container(
-    padding: EdgeInsets.all(valorPadding),
-      child: TextFormField(
-        keyboardType: teclado,
-        controller: controle,
-        decoration: InputDecoration(
-          labelText: texto,
-        ),
-      ),
-  );
-}
-
 Widget botaoSimples( texto, tela, contexto, bool ativo ){
 
   return Container(

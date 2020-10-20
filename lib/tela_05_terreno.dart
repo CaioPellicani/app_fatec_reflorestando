@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
 import 'main.dart';
 import 'classe_projeto.dart';
+import 'classe_TextBox.dart';
 
 class Tela_05_Terreno extends StatefulWidget {
   @override
@@ -26,10 +27,9 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
 
   Widget build(BuildContext context) {
     ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
-    var txtNomeProjeto = TextEditingController();
-    var txtArea = TextEditingController();
-    var txtDistCovas = TextEditingController();
-
+    TextBox oNomeProjeto;
+    TextBoxNumerico oArea;
+    TextBoxNumerico oDistancia;
     return Scaffold(
       key: scaffoldKey,      
          appBar: barraPadrao("Terreno e Modelo"),
@@ -42,9 +42,9 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
           child: ListView(
             shrinkWrap: true,
             children: [
-              caixaTexto("Nome da Propriedade", txtNomeProjeto, false),
-              caixaTexto("Área Total (ha)", txtArea, true),
-              caixaTexto("Distância entre covas", txtDistCovas, true ),   
+              oNomeProjeto = TextBox("Nome da Propriedade", false),
+              oArea = TextBoxNumerico("Área Total (ha)", false),
+              oDistancia = TextBoxNumerico("Distância entre covas (m)", false ),   
 
               Container(
                 margin: EdgeInsets.all(valorPadding),
@@ -64,6 +64,7 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                       onChanged: ( value ){
                         setState(() {
                           radioGrupo = value;
+                          oNomeProjeto.controle = oNomeProjeto.controle;
                         });
                       },
                     ),

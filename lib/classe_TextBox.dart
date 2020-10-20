@@ -4,6 +4,7 @@ import 'main.dart';
 class TextBox extends StatelessWidget {
   var formKey = GlobalKey<FormState>();
   String msgValidacao = "Insira um Texto";
+  bool obrigatorio = false;
 
   var controle = TextEditingController();
   var teclado = TextInputType.text;
@@ -11,8 +12,9 @@ class TextBox extends StatelessWidget {
   String label;
 
 
-  TextBox( String _label ){
+  TextBox( String _label, bool _obrigatorio ){
     this.label = _label;
+    this.obrigatorio = _obrigatorio;
   }
 
   @override
@@ -33,18 +35,25 @@ class TextBox extends StatelessWidget {
     );
   }
   String validador( value ){
-    if( value.isEmpty ){
-      return msgValidacao;
+    if( obrigatorio ){
+      if( value.isEmpty ){
+        return msgValidacao;
+      }
     }
     return null;
   }
 
-  bool validarControle() => formKey.currentState.validate();
+  bool validarControle() {
+    if( obrigatorio )
+      return formKey.currentState.validate();
+    else
+      return true;
+  }
 }
 
 class TxtLogin extends TextBox{
 
-  TxtLogin( String _label, bool _senha ) : super( _label ){
+  TxtLogin( String _label, bool _senha, bool _obrigatorio ) : super( _label, _obrigatorio ){
     this.senha = _senha;
     if( senha )
       msgValidacao = "Insira uma Senha";
@@ -53,21 +62,38 @@ class TxtLogin extends TextBox{
   }
 
   bool validarLogin(){
-    //if( ( validarControle() ) && ( controle.text == "Caio" ) ){
-    if( controle.text == "Caio" ){
+    if( ( validarControle() ) && ( controle.text == "Caio" ) ){
       return true;
     }
     return false;
   }
 
   bool validarSenha(){
-    //if( ( validarControle() ) && ( controle.text == "123" ) ){
-    if( controle.text == "123"){
+    if( ( validarControle() ) && ( controle.text == "123" ) ){
       return true;
     }
         print( msgValidacao );
     return false;
   }
-
 }
 
+class TextBoxNumerico extends TextBox{
+
+  TextBoxNumerico( String _label, bool _obrigatorio ) : super( _label, _obrigatorio ){
+    teclado = TextInputType.number;
+    msgValidacao = "Insira um Valor Numérico";
+  }
+
+  String validador( value ){
+    if( obrigatorio ){
+      if( value.isEmpty ){
+        return msgValidacao;
+      }
+    }
+    if( double.tryParse(value) == null ){
+      return msgValidacao;
+    }
+    return null;
+  }
+
+}

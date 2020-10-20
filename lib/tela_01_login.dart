@@ -33,8 +33,8 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
                padding: EdgeInsets.all(valorPadding),           
                 child:  Image.asset("imagens/forest.png", scale: 3, )
               ),
-              oTxtUsuario =  TxtLogin("Usuário", false),
-              oTxtSenha = TxtLogin('Senha', true),
+              oTxtUsuario =  TxtLogin("Usuário", false, false),
+              oTxtSenha = TxtLogin('Senha', true, false),
 
               //botaoLogin(context, scaffoldKey, txtUsuario, txtSenha),
 

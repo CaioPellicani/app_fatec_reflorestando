@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
+import 'classe_TextBox.dart';
 
 class Tela_04_Bioma extends StatefulWidget {
   @override
@@ -51,9 +52,9 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
               children: [
                 DropBox("Biomas", txtBioma, biomas),
                 DropBox("Tipo", txtApp, apps ),
-                caixaTexto("Pecentual de Solo Úmido", txtUmido, true ),
-                caixaTexto("Pecentual de Solo Árido", txtArido, true ),
-                caixaTexto("Pecentual de Solo Misto", txtMisto, true ),
+                TextBoxNumerico("Pecentual de Solo Úmido", false ),
+                TextBoxNumerico("Pecentual de Solo Árido", false ),
+                TextBoxNumerico("Pecentual de Solo Misto", false),
               ],
             ),
           ),
