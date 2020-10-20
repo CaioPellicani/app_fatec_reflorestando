@@ -78,7 +78,7 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
           separatorBuilder: (context, index){
             return Divider(thickness: 1, color: Colors.grey);
           },
-          itemCount: 5,
+          itemCount: checkBox.length,
         ),
 
       ),

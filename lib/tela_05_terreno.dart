@@ -43,35 +43,43 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
             shrinkWrap: true,
             children: [
               caixaTexto("Nome da Propriedade", txtNomeProjeto, false),
-              caixaTexto("Area Total (ha)", txtArea, true),
+              caixaTexto("Área Total (ha)", txtArea, true),
               caixaTexto("Distância entre covas", txtDistCovas, true ),   
 
               Container(
-                padding: EdgeInsets.all(valorPadding),
-                child: Text( "Modelos Florestal", style: TextStyle( fontSize: 16 ), )),
-              Column(
-                children: [
-                  RadioListTile(
-                    title: Text( modeloFlorestal[0] ),
-                    value: 0,
-                    groupValue: radioGrupo,
-                    onChanged: ( value ){
-                      setState(() {
-                        radioGrupo = value;
-                      });
-                    },
-                  ),
-                  RadioListTile(
-                    title: Text( modeloFlorestal[1] ),
-                    value: 1,
-                    groupValue: radioGrupo,
-                    onChanged: ( value){
-                      setState(() {
-                        radioGrupo = value;
-                      });
-                    },
-                  ),
-                ],
+                margin: EdgeInsets.all(valorPadding),
+                padding: EdgeInsets.fromLTRB(0, valorPadding, 0, 0),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey, width: 2),
+                  borderRadius: BorderRadius.all( Radius.circular(10)) 
+                ),
+                child: Column(
+                  children: [
+                    Text( "Modelo Florestal", style: TextStyle( fontSize: 18, color:Colors.grey, fontWeight: FontWeight.bold),),
+                    RadioListTile(
+                      title: Text( modeloFlorestal[0] ),
+                      value: 0,
+                      groupValue: radioGrupo,
+                      activeColor: Theme.of(context).primaryColor,
+                      onChanged: ( value ){
+                        setState(() {
+                          radioGrupo = value;
+                        });
+                      },
+                    ),
+                    RadioListTile(
+                      title: Text( modeloFlorestal[1] ),
+                      value: 1,
+                      groupValue: radioGrupo,
+                      activeColor: Theme.of(context).primaryColor,
+                      onChanged: ( value){
+                        setState(() {
+                          radioGrupo = value;
+                        });
+                      },
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

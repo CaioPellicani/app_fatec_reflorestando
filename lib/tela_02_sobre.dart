@@ -41,13 +41,17 @@ class Tela_02_Sobre extends StatelessWidget {
                       textAlign: TextAlign.justify,
                     ),
                     Text( "\tFormado em Gestão Ambiental pela ESALQ-USP e tem por objetivo buscar alternativas " + 
-                            "para mitigar problemas de carater ambiental por meio de soluções tecnologicas.\n",
+                            "para mitigar problemas de caráter ambiental por meio de soluções tecnológicas.\n",
                       style: TextStyle( color: Colors.white, fontSize: 15, ),
                       textAlign: TextAlign.justify,
                     ),
-                    Text( "\tO presente aplicativo busca auxiliar o trabalho de tecnicos no momento da escolha das espécies " +
-                            "florestais que serão implementados em projetos de reflorestamento, e futuramente também para projetos " +
-                            "agroflorestais, silviopastoril e arborização urbana.\n",
+                    Text( "\tO presente aplicativo busca auxiliar o trabalho de técnicos no momento da escolha das espécies " +
+                            "florestais que serão implementados em projetos de reflorestamento\n",
+                      style: TextStyle( color: Colors.white, fontSize: 15, ),
+                      textAlign: TextAlign.justify,
+                    ),
+                    Text( "\tFuturamente o projeto irá se aplicar para projetos agroflorestais, silviopastoril " + 
+                            "e arborização urbana, assim como exportação do projeto para outras plataformas.\n",
                       style: TextStyle( color: Colors.white, fontSize: 15, ),
                       textAlign: TextAlign.justify,
                     ),
