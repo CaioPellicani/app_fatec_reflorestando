@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
+import 'classe_TextBox.dart';
+import 'main.dart';
 import 'minhas_funcoes.dart';
 
 class Tela_01_Login extends StatefulWidget {
@@ -11,10 +13,12 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
     
     var txtUsuario = TextEditingController();
     var txtSenha = TextEditingController();
-    var usuario = 'Caio';
+    TxtLogin oTxtUsuario;
+    TxtLogin oTxtSenha;
     var scaffoldKey = GlobalKey<ScaffoldState>();
   
   @override
+
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
@@ -31,9 +35,29 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
              padding: EdgeInsets.all(20),           
               child:  Image.asset("imagens/forest.png", scale: 3, )
             ),
-            caixaTexto('Usuário', txtUsuario, false),
-            caixaTexto('Senha', txtSenha, false),
-            botaoLogin(context, scaffoldKey, txtUsuario, txtSenha),
+            oTxtUsuario =  TxtLogin("Usuário", /*txtUsuario,*/ false),
+            oTxtSenha = TxtLogin('Senha', /*txtSenha,*/ true),
+
+            //botaoLogin(context, scaffoldKey, txtUsuario, txtSenha),
+
+            Container(
+              padding: EdgeInsets.only(top: ( valorPadding * 2 )),
+              child: RaisedButton(
+                child: Text( 'Entrar', style: styleBotoes, ),
+                color: Theme.of(context).primaryColor,
+                onPressed: (){
+                  if( ( oTxtUsuario.validarLogin() ) && ( oTxtSenha.validarSenha() ) )
+                    Navigator.pushNamed(context, '/tela_03' );
+                  else
+                    scaffoldKey.currentState.showSnackBar( 
+                      SnackBar(
+                        content: Text('Usuário ou Senha Inválida' ),
+                        duration: Duration(seconds: 3),  
+                      ),
+                    );
+                }
+              ),
+            ),
           ]    
         )
       ),
