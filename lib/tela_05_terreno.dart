@@ -28,15 +28,14 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
 
   Widget build(BuildContext context) {
 
-    ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
-    if( oMeuReflorestamento == null ){ //durante testes evita erros
-      oMeuReflorestamento = ProjetoReflorestamento();
+    ProjetoReflorestamento oProjeto = ModalRoute.of(context).settings.arguments; 
+    if( oProjeto == null ){ //durante testes evita erros
+      oProjeto = ProjetoReflorestamento();
     }
-    oMeuReflorestamento.carregarEspecies();
  
     TextBox oNomeProjeto;
-    TextBoxNumerico oArea;
-    TextBoxNumerico oDistancia;
+    TextBox oArea;
+    TextBox oDistancia;
 
     return Scaffold(
       key: scaffoldKey,      
@@ -45,7 +44,10 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
       drawerEnableOpenDragGesture: false,
       floatingActionButton: BotaoFlutuante(
         hint: 'Reflorestamento', 
-        acao: ()=> Navigator.pushNamed( context, "/tela_07", arguments: oMeuReflorestamento ), 
+        acao: (){
+          oProjeto.carregarEspecies();
+          Navigator.pushNamed( context, "/tela_07", arguments: oProjeto );
+        }, 
       ),
 
       body: Center(
@@ -53,9 +55,9 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
           child: ListView(
             shrinkWrap: true,
             children: [
-              oNomeProjeto = TextBox("Nome da Propriedade", false),
-              oArea = TextBoxNumerico("Área Total (ha)", false),
-              oDistancia = TextBoxNumerico("Distância entre covas (m)", false ),   
+              oNomeProjeto = TextBox(label: "Nome da Propriedade"),
+              oArea =        TextBox(label: "Área Total (ha)", teclado: "numerico",),
+              oDistancia =   TextBox(label: "Distância entre covas (m)", teclado: "numerico", ),
 
               Container(
                 margin: EdgeInsets.all(valorPadding),

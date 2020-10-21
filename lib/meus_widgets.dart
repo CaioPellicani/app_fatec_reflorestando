@@ -1,22 +1,7 @@
 import 'package:flutter/material.dart';
 import 'classe_botao.dart';
 import 'main.dart';
-import 'classe_projeto.dart';
 
-TextStyle styleBotoes = TextStyle(color: Colors.white, fontSize: 18);
-
-Widget botaoProximo( String tela, contexto, oProjeto  ){
-  return FloatingActionButton(
-    onPressed: (){
-      if ( tela != '' ){
-        Navigator.pushNamed(contexto, tela, arguments: oProjeto );
-      }
-    },
-    tooltip: 'Próximo',
-    child: Icon(Icons.arrow_right, size: 40,),
-    backgroundColor: Theme.of(contexto).primaryColor,
-  );
-}
 
 Widget aviso( String titulo, String texto ){
   return AlertDialog(
@@ -24,7 +9,6 @@ Widget aviso( String titulo, String texto ){
     content: Text(texto, style: TextStyle(fontSize: 16)),
   );
 }
-
 
 Widget barraPadrao(String texto){
   return AppBar(
@@ -34,9 +18,7 @@ Widget barraPadrao(String texto){
       builder: (BuildContext context) {
         return IconButton(
           icon: const Icon(Icons.menu),
-          onPressed: () { Scaffold.of(context).openDrawer(); },
-          tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          
+          onPressed: () { Scaffold.of(context).openDrawer(); },         
         );
       },
     ),

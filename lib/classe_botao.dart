@@ -5,11 +5,9 @@ class Botao extends StatelessWidget {
   final Function acao;
   final label;
 
-  Botao( { this.label, this.acao } ){
-  }
+  Botao( { this.label, this.acao } ){}
 
   @override
-
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(top: ( valorPadding * 2 )),
@@ -26,11 +24,9 @@ class BotaoFlutuante extends StatelessWidget {
   final Function acao;
   final hint;
 
-  BotaoFlutuante( { this.hint, this.acao } ){
-  }
+  BotaoFlutuante( { this.hint, this.acao } ){}
 
   @override
-
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: acao,

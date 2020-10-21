@@ -10,11 +10,9 @@ class Tela_04_Bioma extends StatefulWidget {
 }
 
 class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
-  ProjetoReflorestamento oMeuReflorestamento = ProjetoReflorestamento();
-
-  TextBoxNumerico oArido;
-  TextBoxNumerico oUmido;
-  TextBoxNumerico oMisto;
+  TextBox oArido;
+  TextBox oUmido;
+  TextBox oMisto;
 
   List<String> biomas = [];
   List<String> apps = [];
@@ -38,13 +36,21 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
   }
 
   Widget build(BuildContext context) {
+
+    ProjetoReflorestamento oProjeto = ModalRoute.of(context).settings.arguments; 
+    if( oProjeto == null ){ //durante testes evita erros
+      oProjeto = ProjetoReflorestamento();
+    }
+
     return Scaffold(    
       appBar: barraPadrao("Bioma e Terreno"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
       floatingActionButton: BotaoFlutuante(
         hint: 'Reflorestamento', 
-        acao: ()=> Navigator.pushNamed( context, "/tela_05", arguments: oMeuReflorestamento ), 
+        acao: (){
+          Navigator.pushNamed( context, "/tela_05", arguments: oProjeto );
+        }, 
       ),
 
       body: SingleChildScrollView(
@@ -55,9 +61,9 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
               children: [
                 DropBox( "Biomas", txtBioma, biomas ),
                 DropBox( "Tipo", txtApp, apps ),
-                oArido = TextBoxNumerico( "Pecentual de Solo Úmido", false ),
-                oUmido = TextBoxNumerico( "Pecentual de Solo Árido", false ),
-                oMisto = TextBoxNumerico( "Pecentual de Solo Misto", false ),
+                oArido = TextBox( label: "Pecentual de Solo Úmido", teclado: "numerico", ),
+                oUmido = TextBox( label: "Pecentual de Solo Árido", teclado: "numerico", ),
+                oMisto = TextBox( label: "Pecentual de Solo Misto", teclado: "numerico", ),
               ],
             ),
           ),

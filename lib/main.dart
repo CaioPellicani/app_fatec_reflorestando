@@ -25,7 +25,7 @@ void main() {
         fontFamily: 'Roboto',        
       ),
 
-      initialRoute: '/tela_01',
+      initialRoute: '/tela_04',
       routes: {
        '/tela_01' : (context) => Tela_01_Login(),
        '/tela_02' : (context) => Tela_02_Sobre(),

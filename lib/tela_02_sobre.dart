@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'meus_widgets.dart';
 
 class Tela_02_Sobre extends StatelessWidget {
 

@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:p1_app_reflorestar/tela_07_rel_especies.dart';
 import 'main.dart';
 
 class TextBox extends StatelessWidget {
-  var _formKey = GlobalKey<FormState>();
-  String _msgValidacao = "Insira um Texto";
-  bool _obrigatorio = false;
+  final formKey;
+  final Function validador;
 
   var _controle = TextEditingController();
-  var _teclado = TextInputType.text;
+  var _teclado;
   bool _senha = false;
   String _label;
 
 
-  TextBox( String label, bool obrigatorio ){
+  TextBox({ String label, String teclado, this.formKey, this.validador  }){
     this._label = label;
-    this._obrigatorio = obrigatorio;
+
+    if (teclado != null) {
+      teclado = teclado.toLowerCase();
+    }
+    switch( teclado ) {
+      case "numerico": this._teclado = TextInputType.number;
+        break;
+      default: this._teclado = TextInputType.text;
+    }
   }
 
   @override
@@ -22,82 +30,42 @@ class TextBox extends StatelessWidget {
     return  Container(
       padding: EdgeInsets.all(valorPadding),
       child: TextFormField(
-        key: _formKey,
+        key: formKey,
         keyboardType: _teclado,
         controller: _controle,
         obscureText: _senha,
         decoration: InputDecoration(
           labelText: _label,
         ),
-        validator: ((value) => validador( value )),
+        validator: validador,
       ),
     );
   }
   get controle{
     return _controle.text;
   }
-  
-  
-  String validador( value ){
-    if( _obrigatorio ){
-      if( value.isEmpty ){
-        return _msgValidacao;
-      }
-    }
-    return null;
-  }
-
-  bool validarControle() {
-    if( _obrigatorio )
-      return _formKey.currentState.validate();
-    else
-      return true;
-  }
 }
 
 class TxtLogin extends TextBox{
+  final formKey;
+  final Function validador;
 
-  TxtLogin( String label, bool senha, bool obrigatorio ) : super( label, obrigatorio ){
+  TxtLogin( bool senha, { String label, this.formKey, this.validador  } ) : super( label: label,  ){
     this._senha = senha;
-    if( _senha )
-      _msgValidacao = "Insira uma Senha";
-    else
-      _msgValidacao = "Insira o Usuário";
   }
 
   bool validarLogin(){
-    if( ( validarControle() ) && ( _controle.text == "Caio" ) ){
+    if( _controle.text == "Caio" ){
       return true;
     }
     return false;
   }
 
   bool validarSenha(){
-    if( ( validarControle() ) && ( _controle.text == "123" ) ){
+    if( _controle.text == "123" ){
       return true;
     }
-        print( _msgValidacao );
     return false;
   }
 }
 
-class TextBoxNumerico extends TextBox{
-
-  TextBoxNumerico( String label, bool obrigatorio ) : super( label, obrigatorio ){
-    _teclado = TextInputType.number;
-    _msgValidacao = "Insira um Valor Numérico";
-  }
-
-  String validador( value ){
-    if( _obrigatorio ){
-      if( value.isEmpty ){
-        return _msgValidacao;
-      }
-    }
-    if( double.tryParse(value) == null ){
-      return _msgValidacao;
-    }
-    return null;
-  }
-
-}

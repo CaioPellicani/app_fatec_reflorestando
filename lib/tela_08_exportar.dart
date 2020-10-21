@@ -15,11 +15,10 @@ class _Tela_08_ExportarState extends State<Tela_08_Exportar>{
 
   @override
   Widget build(BuildContext context) {
-    ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
-    if( oMeuReflorestamento == null ){ //durante testes evita erros
-      oMeuReflorestamento = ProjetoReflorestamento();
+    ProjetoReflorestamento oProjeto = ModalRoute.of(context).settings.arguments; 
+    if( oProjeto == null ){ //durante testes evita erros
+      oProjeto = ProjetoReflorestamento();
     }
-    oMeuReflorestamento.carregarEspecies();
  
     return Scaffold(
       key: scaffoldKey,      

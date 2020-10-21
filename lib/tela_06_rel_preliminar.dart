@@ -3,6 +3,10 @@ import 'meus_widgets.dart';
 import 'classe_projeto.dart';
 import 'classe_botao.dart';
 
+//#########################
+//TELA SEM USO - ainda
+//#########################
+
 class Tela_06_RelPreliminar extends StatefulWidget {
   @override
   _Tela_06_RelPreliminarState createState() => _Tela_06_RelPreliminarState();
@@ -15,11 +19,9 @@ class _Tela_06_RelPreliminarState extends State<Tela_06_RelPreliminar> {
   @override
   Widget build(BuildContext context) {
     
-    ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
-    if( oMeuReflorestamento == null ){ //durante testes evita erros
-      oMeuReflorestamento = ProjetoReflorestamento();
+    ProjetoReflorestamento oProjeto = ModalRoute.of(context).settings.arguments; 
+    if( oProjeto == null ){ //durante testes evita erros
     }
-    oMeuReflorestamento.carregarEspecies();
     
     return Scaffold(
       key: scaffoldKey,      
@@ -28,7 +30,10 @@ class _Tela_06_RelPreliminarState extends State<Tela_06_RelPreliminar> {
       drawerEnableOpenDragGesture: false,
       floatingActionButton: BotaoFlutuante(
         hint: 'Reflorestamento', 
-        acao: ()=> Navigator.pushNamed( context, "/tela_07", arguments: oMeuReflorestamento ), 
+        acao: (){ 
+          oProjeto.carregarEspecies();
+          Navigator.pushNamed( context, "/tela_07", arguments: oProjeto );
+        }, 
       ),
 
       body: Container(),
