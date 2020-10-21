@@ -1,23 +1,10 @@
 import 'package:flutter/material.dart';
 import 'minhas_funcoes.dart';
+import 'classe_botao.dart';
 import 'main.dart';
 import 'classe_projeto.dart';
 
 TextStyle styleBotoes = TextStyle(color: Colors.white, fontSize: 18);
-
-Widget botaoSimples( texto, tela, contexto, bool ativo ){
-
-  return Container(
-    padding: EdgeInsets.only(top: ( valorPadding * 2 )),
-    child: RaisedButton(
-      child: Text( 
-        texto, style: styleBotoes,
-      ),
-      color: Theme.of(contexto).primaryColor,
-      onPressed: ativarBotao(ativo, contexto, tela)
-    ),
-  );
-}
 
 Widget botaoProximo( String tela, contexto, oProjeto  ){
   return FloatingActionButton(
@@ -29,30 +16,6 @@ Widget botaoProximo( String tela, contexto, oProjeto  ){
     tooltip: 'Próximo',
     child: Icon(Icons.arrow_right, size: 40,),
     backgroundColor: Theme.of(contexto).primaryColor,
-  );
-}
-
-Widget botaoLogin( contexto, scaffoldKey, usuario, senha ){
-  return Container(
-    padding: EdgeInsets.only(top: ( valorPadding * 2 )),
-    child: RaisedButton(
-      child: Text( 
-        'Entrar', 
-          style: styleBotoes,
-      ),
-      color: Theme.of(contexto).primaryColor,
-      onPressed: (){
-        if( validarUsuario(usuario.text, senha.text) )
-          Navigator.pushNamed(contexto, '/tela_03' );
-        else
-          scaffoldKey.currentState.showSnackBar( 
-            SnackBar(
-              content: Text('Usuário ou Senha Inválida' ),
-              duration: Duration(seconds: 3),  
-            ),
-          );
-      }
-    ),
   );
 }
 
@@ -87,8 +50,8 @@ Widget menuBarra(contexto){
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          botaoSimples("Voltar ao Menu", '/tela_03', contexto, true),
-          botaoSimples("Sobre o desenvolvedor", '/tela_02', contexto, true),
+          Botao(label: 'Voltar ao Menu', acao: ()=> Navigator.pushNamed( contexto, "/tela_03" ) ),
+          Botao(label: 'Sobre o desenvolvedor', acao: ()=> Navigator.pushNamed( contexto, "/tela_02" ) ),
         ],
       ),
     ),

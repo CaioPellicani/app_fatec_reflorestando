@@ -10,38 +10,15 @@ class Tela_07_RelEspecies extends StatefulWidget {
 
 class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  List<bool> checkBox = [true, true, true, true, true];
-  List<String> nomePopular = [];
-  List<String> nomeCientifico = [];
-  List<String> funcaoEcologica = [];
-
-  void initState(){
-    nomePopular.add('Paricá');
-    nomeCientifico.add('Schizolobium amazonicum');
-    funcaoEcologica.add('P');
-
-    nomePopular.add('Ipê-Amarelo');
-    nomeCientifico.add('Handroanthus serratifolius');
-    funcaoEcologica.add('S');
-
-    nomePopular.add('Copaíba');
-    nomeCientifico.add('Copaifera glycycarpa');   
-    funcaoEcologica.add('C');
-
-    nomePopular.add('Seringueira');
-    nomeCientifico.add('Hevea brasiliensis');
-    funcaoEcologica.add('S');
-
-    nomePopular.add('Tucumã');
-    nomeCientifico.add('Astrocaryum aculeatum');
-    funcaoEcologica.add('S'); 
-
-    super.initState();
-  }
   @override
   
   Widget build(BuildContext context) {
+
     ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
+    if( oMeuReflorestamento == null ){ //durante testes evita erros
+      oMeuReflorestamento = ProjetoReflorestamento();
+    }
+    oMeuReflorestamento.carregarEspecies();
  
     return Scaffold(
       key: scaffoldKey,      
@@ -55,21 +32,21 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
         child: ListView.separated( 
           itemBuilder: (context,index){
             return CheckboxListTile(
-              title: Text( nomePopular[index] ),
-              subtitle: Text( nomeCientifico[index], style: TextStyle( fontStyle: FontStyle.italic),),
+              title: Text( oMeuReflorestamento.getNomePopular(index) ),
+              subtitle: Text( oMeuReflorestamento.getNomeCientifico(index), style: TextStyle( fontStyle: FontStyle.italic),),
               secondary: Container(
                 padding: EdgeInsets.all(valorPadding / 1.5),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: Theme.of(context).primaryColor,
                 ),
-                child: Text( funcaoEcologica[index], style: TextStyle( color: Colors.white),)
+                child: Text( oMeuReflorestamento.getFuncaoEcologica(index), style: TextStyle( color: Colors.white),)
               ),
               controlAffinity: ListTileControlAffinity.leading,
-              value: checkBox[index],
+              value: oMeuReflorestamento.getCheckBox(index),
               onChanged: ( bool value ){             
                 setState(() {     
-                  checkBox[index] = value;  
+                  oMeuReflorestamento.setCheckBox( index, value );  
                 });
               },
               activeColor: Theme.of(context).primaryColor,
@@ -78,7 +55,7 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
           separatorBuilder: (context, index){
             return Divider(thickness: 1, color: Colors.grey);
           },
-          itemCount: checkBox.length,
+          itemCount: oMeuReflorestamento.getEspeciesLenght
         ),
 
       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'meus_widgets.dart';
+import 'classe_botao.dart';
 import 'classe_projeto.dart';
 
 class Tela_08_Exportar extends StatefulWidget {
@@ -15,6 +16,10 @@ class _Tela_08_ExportarState extends State<Tela_08_Exportar>{
   @override
   Widget build(BuildContext context) {
     ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
+    if( oMeuReflorestamento == null ){ //durante testes evita erros
+      oMeuReflorestamento = ProjetoReflorestamento();
+    }
+    oMeuReflorestamento.carregarEspecies();
  
     return Scaffold(
       key: scaffoldKey,      
@@ -28,9 +33,9 @@ class _Tela_08_ExportarState extends State<Tela_08_Exportar>{
           child: ListView( 
             shrinkWrap: true,
             children: [
-              botaoSimples("Email", "", context, false),
-              botaoSimples("WhatApp", "", context, false),
-              botaoSimples("Telegram", "", context, false),
+              Botao( label:"Email", acao:null),
+              Botao( label: "WhatApp", acao: null),
+              Botao( label:"Telegram", acao: null),
             ],
           ),
         )

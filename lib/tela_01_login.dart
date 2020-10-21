@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:p1_app_reflorestar/classe_botao.dart';
 import 'meus_widgets.dart';
-import 'classe_TextBox.dart';
+import 'classe_text_box.dart';
+import 'classe_botao.dart';
 import 'main.dart';
 import 'minhas_funcoes.dart';
 
@@ -12,6 +14,7 @@ class Tela_01_Login extends StatefulWidget {
 class _Tela_01_LoginState extends State<Tela_01_Login>{
     TxtLogin oTxtUsuario;
     TxtLogin oTxtSenha;
+    Botao oBtnLogin;
     var scaffoldKey = GlobalKey<ScaffoldState>();
   
   @override
@@ -36,26 +39,20 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
               oTxtUsuario =  TxtLogin("Usuário", false, false),
               oTxtSenha = TxtLogin('Senha', true, false),
 
-              //botaoLogin(context, scaffoldKey, txtUsuario, txtSenha),
-
-              Container(
-                padding: EdgeInsets.only(top: ( valorPadding * 2 )),
-                child: RaisedButton(
-                  child: Text( 'Entrar', style: styleBotoes, ),
-                  color: Theme.of(context).primaryColor,
-                  onPressed: (){
-                    if( ( oTxtUsuario.validarLogin() ) && ( oTxtSenha.validarSenha() ) )
-                      Navigator.pushNamed(context, '/tela_03' );
-                    else
-                      scaffoldKey.currentState.showSnackBar( 
-                        SnackBar(
-                          content: Text('Usuário ou Senha Inválida' ),
-                          duration: Duration(seconds: 3),  
-                        ),
-                      );
-                  }
-                ),
-              ),
+              oBtnLogin = Botao( 
+                label: "Entrar",
+                acao: (){
+                  if( ( oTxtUsuario.validarLogin() ) && ( oTxtSenha.validarSenha() ) )
+                    Navigator.pushNamed(context, '/tela_03' );
+                  else
+                    scaffoldKey.currentState.showSnackBar( 
+                      SnackBar(
+                        content: Text('Usuário ou Senha Inválida' ),
+                        duration: Duration(seconds: 3),  
+                      ),
+                    );
+                }
+              )
             ]    
           )
         ),

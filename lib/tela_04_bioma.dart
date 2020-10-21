@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
-import 'classe_TextBox.dart';
+import 'classe_text_box.dart';
 
 class Tela_04_Bioma extends StatefulWidget {
   @override
@@ -9,12 +9,11 @@ class Tela_04_Bioma extends StatefulWidget {
 }
 
 class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
-
   ProjetoReflorestamento oMeuReflorestamento = ProjetoReflorestamento();
 
-  var txtArido = TextEditingController();
-  var txtUmido = TextEditingController();
-  var txtMisto = TextEditingController();
+  TextBoxNumerico oArido;
+  TextBoxNumerico oUmido;
+  TextBoxNumerico oMisto;
 
   List<String> biomas = [];
   List<String> apps = [];
@@ -50,11 +49,11 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                DropBox("Biomas", txtBioma, biomas),
-                DropBox("Tipo", txtApp, apps ),
-                TextBoxNumerico("Pecentual de Solo Úmido", false ),
-                TextBoxNumerico("Pecentual de Solo Árido", false ),
-                TextBoxNumerico("Pecentual de Solo Misto", false),
+                DropBox( "Biomas", txtBioma, biomas ),
+                DropBox( "Tipo", txtApp, apps ),
+                oArido = TextBoxNumerico( "Pecentual de Solo Úmido", false ),
+                oUmido = TextBoxNumerico( "Pecentual de Solo Árido", false ),
+                oMisto = TextBoxNumerico( "Pecentual de Solo Misto", false ),
               ],
             ),
           ),

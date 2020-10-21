@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
 import 'main.dart';
 import 'classe_projeto.dart';
-import 'classe_TextBox.dart';
+import 'classe_text_box.dart';
 
 class Tela_05_Terreno extends StatefulWidget {
   @override
@@ -26,10 +26,17 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
     }
 
   Widget build(BuildContext context) {
+
     ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
+    if( oMeuReflorestamento == null ){ //durante testes evita erros
+      oMeuReflorestamento = ProjetoReflorestamento();
+    }
+    oMeuReflorestamento.carregarEspecies();
+ 
     TextBox oNomeProjeto;
     TextBoxNumerico oArea;
     TextBoxNumerico oDistancia;
+
     return Scaffold(
       key: scaffoldKey,      
          appBar: barraPadrao("Terreno e Modelo"),
@@ -64,7 +71,6 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                       onChanged: ( value ){
                         setState(() {
                           radioGrupo = value;
-                          oNomeProjeto.controle = oNomeProjeto.controle;
                         });
                       },
                     ),

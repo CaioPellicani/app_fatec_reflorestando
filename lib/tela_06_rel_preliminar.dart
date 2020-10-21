@@ -13,7 +13,12 @@ class _Tela_06_RelPreliminarState extends State<Tela_06_RelPreliminar> {
 
   @override
   Widget build(BuildContext context) {
+    
     ProjetoReflorestamento oMeuReflorestamento = ModalRoute.of(context).settings.arguments; 
+    if( oMeuReflorestamento == null ){ //durante testes evita erros
+      oMeuReflorestamento = ProjetoReflorestamento();
+    }
+    oMeuReflorestamento.carregarEspecies();
     
     return Scaffold(
       key: scaffoldKey,      
