@@ -4,7 +4,7 @@ import 'meus_widgets.dart';
 import 'classe_text_box.dart';
 import 'classe_botao.dart';
 import 'main.dart';
-import 'minhas_funcoes.dart';
+
 
 class Tela_01_Login extends StatefulWidget {
   @override

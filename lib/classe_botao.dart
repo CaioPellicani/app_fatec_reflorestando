@@ -21,3 +21,23 @@ class Botao extends StatelessWidget {
     );
   }
 }
+
+class BotaoFlutuante extends StatelessWidget {
+  final Function acao;
+  final hint;
+
+  BotaoFlutuante( { this.hint, this.acao } ){
+  }
+
+  @override
+
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      onPressed: acao,
+      tooltip: hint,
+      child: Icon(Icons.arrow_right, size: 40,),
+      backgroundColor: Theme.of(context).primaryColor,
+
+    );
+  }
+}

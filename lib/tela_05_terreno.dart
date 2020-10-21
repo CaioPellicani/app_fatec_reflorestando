@@ -3,6 +3,7 @@ import 'meus_widgets.dart';
 import 'main.dart';
 import 'classe_projeto.dart';
 import 'classe_text_box.dart';
+import 'classe_botao.dart';
 
 class Tela_05_Terreno extends StatefulWidget {
   @override
@@ -42,7 +43,10 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
          appBar: barraPadrao("Terreno e Modelo"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
-      floatingActionButton: botaoProximo( '/tela_07', context, oMeuReflorestamento),
+      floatingActionButton: BotaoFlutuante(
+        hint: 'Reflorestamento', 
+        acao: ()=> Navigator.pushNamed( context, "/tela_07", arguments: oMeuReflorestamento ), 
+      ),
 
       body: Center(
         child: Container(

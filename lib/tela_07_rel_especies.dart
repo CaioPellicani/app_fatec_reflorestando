@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
 import 'main.dart';
 import 'classe_projeto.dart';
+import 'classe_botao.dart';
 
 class Tela_07_RelEspecies extends StatefulWidget {
   @override
@@ -25,7 +26,10 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
          appBar: barraPadrao("Lista de Espécies"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
-      floatingActionButton: botaoProximo( '/tela_08', context, oMeuReflorestamento),
+      floatingActionButton: BotaoFlutuante(
+        hint: 'Reflorestamento', 
+        acao: ()=> Navigator.pushNamed( context, "/tela_08", arguments: oMeuReflorestamento ), 
+      ),
 
       body: Container( 
         padding: EdgeInsets.all(valorPadding),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'minhas_funcoes.dart';
 import 'classe_botao.dart';
 import 'main.dart';
 import 'classe_projeto.dart';

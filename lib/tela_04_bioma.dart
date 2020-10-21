@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:p1_app_reflorestar/classe_botao.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
 import 'classe_text_box.dart';
@@ -41,7 +42,10 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
       appBar: barraPadrao("Bioma e Terreno"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
-      floatingActionButton: botaoProximo( '/tela_05', context, oMeuReflorestamento),
+      floatingActionButton: BotaoFlutuante(
+        hint: 'Reflorestamento', 
+        acao: ()=> Navigator.pushNamed( context, "/tela_05", arguments: oMeuReflorestamento ), 
+      ),
 
       body: SingleChildScrollView(
         child: Container(  

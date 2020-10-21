@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
 import 'classe_projeto.dart';
+import 'classe_botao.dart';
 
 class Tela_06_RelPreliminar extends StatefulWidget {
   @override
@@ -25,7 +26,10 @@ class _Tela_06_RelPreliminarState extends State<Tela_06_RelPreliminar> {
          appBar: barraPadrao("Relatório Preliminar"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
-      floatingActionButton: botaoProximo( '/tela_07', context, oMeuReflorestamento),
+      floatingActionButton: BotaoFlutuante(
+        hint: 'Reflorestamento', 
+        acao: ()=> Navigator.pushNamed( context, "/tela_07", arguments: oMeuReflorestamento ), 
+      ),
 
       body: Container(),
     );
