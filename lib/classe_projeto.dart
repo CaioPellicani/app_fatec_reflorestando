@@ -18,12 +18,23 @@ class ProjetoReflorestamento{
   List<String> _funcaoEcologica = [];
   int _especiesLength = 0;
 
+  List<List> listaArvores = [];
+  
+  Map mapArvores = new Map();
+
   void _addEspecie(String nomePopular, String nomeCientifico, String funcaoEcologica){
     this._checkBox.add( true );
     this._nomePopular.add( nomePopular );
     this._nomeCientifico.add( nomeCientifico );
     this._funcaoEcologica.add( funcaoEcologica );
+
     this._especiesLength++;
+
+    this.mapArvores.addAll({"nomeCientifico": nomeCientifico, 
+                             "nomePopular": nomePopular, 
+                             "funcaoEcologica": funcaoEcologica, 
+                             "checkbox": true});
+
   }
 
   void carregarEspecies(){
@@ -32,6 +43,7 @@ class ProjetoReflorestamento{
     _addEspecie('Copaíba', 'Copaifera glycycarpa', 'C');
     _addEspecie('Seringueira', 'Hevea brasiliensis', 'S');
     _addEspecie('Tucumã', 'Astrocaryum aculeatum', 'S');
+
   }
 
   get getEspeciesLenght{

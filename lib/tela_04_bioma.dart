@@ -46,6 +46,7 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
       appBar: barraPadrao("Bioma e Terreno"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
+
       floatingActionButton: BotaoFlutuante(
         hint: 'Reflorestamento', 
         acao: (){
@@ -61,9 +62,9 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
               children: [
                 DropBox( "Biomas", txtBioma, biomas ),
                 DropBox( "Tipo", txtApp, apps ),
-                oArido = TextBox( label: "Pecentual de Solo Úmido", teclado: "numerico", ),
-                oUmido = TextBox( label: "Pecentual de Solo Árido", teclado: "numerico", ),
-                oMisto = TextBox( label: "Pecentual de Solo Misto", teclado: "numerico", ),
+                oArido = TextBox( label: "Pecentual de Solo Úmido ( % )", teclado: "Numerico", ),
+                oUmido = TextBox( label: "Pecentual de Solo Árido ( % )", teclado: "numerico", ),
+                oMisto = TextBox( label: "Pecentual de Solo Misto ( % )", teclado: "numerico", ),
               ],
             ),
           ),

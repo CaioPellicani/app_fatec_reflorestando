@@ -42,6 +42,7 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
          appBar: barraPadrao("Terreno e Modelo"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
+      
       floatingActionButton: BotaoFlutuante(
         hint: 'Reflorestamento', 
         acao: (){
@@ -56,8 +57,8 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
             shrinkWrap: true,
             children: [
               oNomeProjeto = TextBox(label: "Nome da Propriedade"),
-              oArea =        TextBox(label: "Área Total (ha)", teclado: "numerico",),
-              oDistancia =   TextBox(label: "Distância entre covas (m)", teclado: "numerico", ),
+              oArea =        TextBox(label: "Área Total ( ha )", teclado: "numerico",),
+              oDistancia =   TextBox(label: "Distância entre covas ( m )", teclado: "numerico", ),
 
               Container(
                 margin: EdgeInsets.all(valorPadding),

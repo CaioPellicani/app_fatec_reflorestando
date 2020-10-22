@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:p1_app_reflorestar/tela_04_bioma.dart';
 import 'tela_01_login.dart';
 import 'tela_02_sobre.dart';
 import 'tela_03_menu.dart';
@@ -25,7 +24,7 @@ void main() {
         fontFamily: 'Roboto',        
       ),
 
-      initialRoute: '/tela_04',
+      initialRoute: '/tela_01',
       routes: {
        '/tela_01' : (context) => Tela_01_Login(),
        '/tela_02' : (context) => Tela_02_Sobre(),

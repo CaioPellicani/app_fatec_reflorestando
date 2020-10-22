@@ -25,6 +25,7 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
          appBar: barraPadrao("Lista de Espécies"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
+      
       floatingActionButton: BotaoFlutuante(
         hint: 'Reflorestamento', 
         acao: (){

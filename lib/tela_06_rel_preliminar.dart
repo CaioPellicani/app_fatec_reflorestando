@@ -28,6 +28,7 @@ class _Tela_06_RelPreliminarState extends State<Tela_06_RelPreliminar> {
          appBar: barraPadrao("Relatório Preliminar"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
+      
       floatingActionButton: BotaoFlutuante(
         hint: 'Reflorestamento', 
         acao: (){ 
