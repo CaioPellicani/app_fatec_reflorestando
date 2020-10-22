@@ -47,27 +47,23 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
 
-      floatingActionButton: BotaoFlutuante(
-        hint: 'Reflorestamento', 
-        acao: (){
-          Navigator.pushNamed( context, "/tela_05", arguments: oProjeto );
-        }, 
-      ),
-
-      body: SingleChildScrollView(
-        child: Container(  
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                DropBox( "Biomas", txtBioma, biomas ),
-                DropBox( "Tipo", txtApp, apps ),
-                oArido = TextBox( label: "Pecentual de Solo Úmido ( % )", teclado: "Numerico", ),
-                oUmido = TextBox( label: "Pecentual de Solo Árido ( % )", teclado: "numerico", ),
-                oMisto = TextBox( label: "Pecentual de Solo Misto ( % )", teclado: "numerico", ),
-              ],
+      body: Container(  
+        child: ListView(
+          shrinkWrap: true,
+          children: [
+            DropBox( "Biomas", txtBioma, biomas ),
+            DropBox( "Tipo", txtApp, apps ),
+            oArido = TextBox( label: "Pecentual de Solo Úmido ( % )", teclado: "Numerico", ),
+            oUmido = TextBox( label: "Pecentual de Solo Árido ( % )", teclado: "numerico", ),
+            oMisto = TextBox( label: "Pecentual de Solo Misto ( % )", teclado: "numerico", ),
+            Botao(
+              label: 'Prosseguir', 
+              acao: (){
+                Navigator.pushNamed( context, "/tela_05", arguments: oProjeto );
+              }, 
             ),
-          ),
+            SizedBox( height: 40 ,),
+          ],
         ),
       ),  
     );

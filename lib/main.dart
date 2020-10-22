@@ -20,11 +20,11 @@ void main() {
 
       theme: ThemeData(
         primaryColor: Colors.green[900],
-        backgroundColor: Colors.green[400],
+        backgroundColor: Colors.green[100],
         fontFamily: 'Roboto',        
       ),
 
-      initialRoute: '/tela_04',
+      initialRoute: '/tela_01',
       routes: {
        '/tela_01' : (context) => Tela_01_Login(),
        '/tela_02' : (context) => Tela_02_Sobre(),

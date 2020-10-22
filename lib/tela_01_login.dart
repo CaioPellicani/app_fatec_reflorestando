@@ -21,7 +21,6 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-
       body: SingleChildScrollView(
         child: Container( child: 
           Column(

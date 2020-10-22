@@ -41,14 +41,6 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
          appBar: barraPadrao("Terreno e Modelo"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
-      
-      floatingActionButton: BotaoFlutuante(
-        hint: 'Reflorestamento', 
-        acao: (){
-          oProjeto.carregarEspecies();
-          Navigator.pushNamed( context, "/tela_07", arguments: oProjeto );
-        }, 
-      ),
 
       body: Center(
         child: Container(
@@ -116,6 +108,15 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                   ],
                 ),
               ),
+
+              Botao(
+                label: 'Prosseguir', 
+                acao: (){
+                  oProjeto.carregarEspecies();
+                  Navigator.pushNamed( context, "/tela_07", arguments: oProjeto );
+                }, 
+              ),
+              SizedBox( height: 40 ,),
             ],
           ),
         ),
