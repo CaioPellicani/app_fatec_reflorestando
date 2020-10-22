@@ -18,9 +18,8 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
   @override
 
     void initState(){
-      modeloFlorestal.add( 'P-S-C-S' );
-      modeloFlorestal.add( 'P-S-P-C-P-S' );
-      modeloFlorestal.add( 'SSSS');
+      modeloFlorestal.add( 'PSC.png' );
+      modeloFlorestal.add( 'PSSC.png');
 
       super.initState();
       radioGrupo = 0;
@@ -71,7 +70,14 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                   children: [
                     Text( "Modelo Florestal", style: TextStyle( fontSize: 18, color:Colors.grey, fontWeight: FontWeight.bold),),
                     RadioListTile(
-                      title: Text( modeloFlorestal[0] ),
+                      title: Container(
+                        margin: EdgeInsets.all(valorPadding),
+                        padding: EdgeInsets.all(valorPadding),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.all( Radius.circular(10)) 
+                        ),
+                        child: Image.asset('imagens/${modeloFlorestal[0]}' , scale: 2)),
                       value: 0,
                       groupValue: radioGrupo,
                       activeColor: Theme.of(context).primaryColor,
@@ -82,8 +88,14 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                       },
                     ),
                     RadioListTile(
-                      title: Text( modeloFlorestal[1] ),
-                      value: 1,
+                       title: Container(
+                        margin: EdgeInsets.all(valorPadding),
+                        padding: EdgeInsets.all(valorPadding),
+                        decoration: BoxDecoration(
+                          border: Border.all(color: Colors.grey, width: 2),
+                          borderRadius: BorderRadius.all( Radius.circular(10)) 
+                        ),
+                      child: Image.asset('imagens/${modeloFlorestal[1]}' , scale: 2)),                     value: 1,
                       groupValue: radioGrupo,
                       activeColor: Theme.of(context).primaryColor,
                       onChanged: ( value){
@@ -92,6 +104,15 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                         });
                       },
                     ),
+                    Text( "Legenda", style: TextStyle( fontSize: 15, color:Colors.grey, fontWeight: FontWeight.bold),),
+                    Row( children: [
+                      Expanded(
+                        child: Container( 
+                          padding: EdgeInsets.fromLTRB(valorPadding, 0, valorPadding, valorPadding),
+                          child: Image.asset('imagens/legenda.png' ),
+                        )
+                      ),
+                    ], ),
                   ],
                 ),
               ),

@@ -38,11 +38,11 @@ class ProjetoReflorestamento{
   }
 
   void carregarEspecies(){
-    _addEspecie('Paricá', 'Schizolobium amazonicum', 'P');
-    _addEspecie('Ipê-Amarelo', 'Handroanthus serratifolius', 'S');
-    _addEspecie('Copaíba', 'Copaifera glycycarpa', 'C');
-    _addEspecie('Seringueira', 'Hevea brasiliensis', 'S');
-    _addEspecie('Tucumã', 'Astrocaryum aculeatum', 'S');
+    _addEspecie('Paricá', 'Schizolobium amazonicum', 'Primária');
+    _addEspecie('Ipê-Amarelo', 'Handroanthus serratifolius', 'Secundária');
+    _addEspecie('Copaíba', 'Copaifera glycycarpa', 'Climax');
+    _addEspecie('Seringueira', 'Hevea brasiliensis', 'Secundária');
+    _addEspecie('Tucumã', 'Astrocaryum aculeatum', 'Secundária');
 
   }
 

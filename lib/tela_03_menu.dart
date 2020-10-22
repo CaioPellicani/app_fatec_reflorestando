@@ -17,14 +17,16 @@ class Tela_03_Menu extends StatelessWidget {
             padding: EdgeInsets.all( valorPadding ),
             shrinkWrap: true,
             children: [
-              Botao(label: 'Reflorestamento', acao: (){
-                ProjetoReflorestamento oProjeto = ProjetoReflorestamento();
-                Navigator.pushNamed( context, "/tela_04", arguments: oProjeto );
-              },),
+              Botao(label: 'Reflorestamento', 
+                acao: (){
+                  ProjetoReflorestamento oProjeto = ProjetoReflorestamento();
+                  Navigator.pushNamed( context, "/tela_04", arguments: oProjeto );
+                },
+              ),
               Botao(label: 'Agrofloresta', acao: null ),
               Botao(label: 'Silvopastoril',acao: null ),
               Botao(label: 'Arboriazação Urbana', acao: null,),
-              Botao(label: 'Sobre o desenvolvedor', acao: ()=> Navigator.pushNamed( context, "/tela_02" ) ),
+              Botao(label: 'Sobre o Desenvolvedor', acao: ()=> Navigator.pushNamed( context, "/tela_02" ) ),
             ],
           ),
         ),

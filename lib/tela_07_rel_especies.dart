@@ -18,6 +18,7 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
     ProjetoReflorestamento oProjeto = ModalRoute.of(context).settings.arguments; 
     if( oProjeto == null ){ //durante testes evita erros
       oProjeto = ProjetoReflorestamento();
+      oProjeto.carregarEspecies();
     }
  
     return Scaffold(
@@ -40,14 +41,7 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
             return CheckboxListTile(
               title: Text( oProjeto.getNomePopular(index) ),
               subtitle: Text( oProjeto.getNomeCientifico(index), style: TextStyle( fontStyle: FontStyle.italic),),
-              secondary: Container(
-                padding: EdgeInsets.all(valorPadding / 1.5),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: Theme.of(context).primaryColor,
-                ),
-                child: Text( oProjeto.getFuncaoEcologica(index), style: TextStyle( color: Colors.white),)
-              ),
+              secondary: Image.asset("imagens/${oProjeto.getCheckBox(index)}_${oProjeto.getFuncaoEcologica(index)}.png", scale: 4 ),
               controlAffinity: ListTileControlAffinity.leading,
               value: oProjeto.getCheckBox(index),
               onChanged: ( bool value ){             
