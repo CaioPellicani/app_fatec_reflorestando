@@ -1,4 +1,4 @@
-
+import 'model/arvore.dart';
 class ProjetoReflorestamento{
 
 /*  String _nomeProjeto;
@@ -12,29 +12,17 @@ class ProjetoReflorestamento{
   double _areaTotal;
   double _distanciaCovas;
 */
-  List<bool> _checkBox = [];
-  List<String> _nomePopular = [];
-  List<String> _nomeCientifico = [];
-  List<String> _funcaoEcologica = [];
-  int _especiesLength = 0;
 
-  List<List> listaArvores = [];
-  
-  Map mapArvores = new Map();
+  List<Arvore> listaArvores = [];
 
   void _addEspecie(String nomePopular, String nomeCientifico, String funcaoEcologica){
-    this._checkBox.add( true );
-    this._nomePopular.add( nomePopular );
-    this._nomeCientifico.add( nomeCientifico );
-    this._funcaoEcologica.add( funcaoEcologica );
-
-    this._especiesLength++;
-
-    this.mapArvores.addAll({"nomeCientifico": nomeCientifico, 
-                             "nomePopular": nomePopular, 
-                             "funcaoEcologica": funcaoEcologica, 
-                             "checkbox": true});
-
+    listaArvores.add( 
+      Arvore(
+        nomeCientifico: nomeCientifico,
+        nomePopular: nomePopular,
+        funcaoEcologica: funcaoEcologica,
+      ) 
+    );
   }
 
   void carregarEspecies(){
@@ -43,35 +31,28 @@ class ProjetoReflorestamento{
     _addEspecie('Copaíba', 'Copaifera glycycarpa', 'Climax');
     _addEspecie('Seringueira', 'Hevea brasiliensis', 'Secundária');
     _addEspecie('Tucumã', 'Astrocaryum aculeatum', 'Secundária');
-
   }
-
   get getEspeciesLenght{
-    return _especiesLength;
+    return listaArvores.length; 
   }
 
   bool getCheckBox( int i ){
-    return _checkBox[i];
+    return listaArvores[i].checkBoxState;  
   }
 
   void setCheckBox( int i, bool checkBox ){
-    this._checkBox[i] = checkBox;
+    listaArvores[i].setCheckBoxState = checkBox;
   }
 
   String getNomePopular( int i ){
-    return _nomePopular[i];
+    return listaArvores[i].nomePopular;   
   }  
 
   String getNomeCientifico( int i ){
-    return _nomeCientifico[i];
+    return listaArvores[i].nomeCientifico;
   }  
 
-    String getFuncaoEcologica( int i ){
-    return _funcaoEcologica[i];
+  String getFuncaoEcologica( int i ){
+    return listaArvores[i].funcaoEcologica; 
   }  
-
-  void exportar(){
-
-  }
-  
 }

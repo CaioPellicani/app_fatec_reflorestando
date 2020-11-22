@@ -56,7 +56,7 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
               ),
 
               Botao( label: "Entrar",
-                acao: (){
+                acao: () {
                   if(( oTxtUsuario.validarLogin() ) &&  ( oTxtSenha.validarSenha()))
                     Navigator.pushNamed(context, '/tela_03' );
                   else

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'tela_01_login.dart';
 import 'tela_02_sobre.dart';
@@ -12,7 +14,12 @@ const double valorPadding = 20;
 
 var scaffoldKey = GlobalKey<ScaffoldState>();
 
-void main() {
+void main() async {
+
+  //registrar firebase 
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+    
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -37,5 +44,17 @@ void main() {
       }
     )
   );
+
+
+  var db = FirebaseFirestore.instance;
+  db.collection("usuarios").add(
+    {
+    "empresa":"teste",
+    "usuario":"teste",
+    "senha":"teste",
+    }
+  );
+
+
 }
 
