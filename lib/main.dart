@@ -47,13 +47,13 @@ void main() async {
 
 
   var db = FirebaseFirestore.instance;
-  db.collection("usuarios").add(
-    {
+  ///db.collection("usuarios").add(
+  /*  {
     "empresa":"teste",
     "usuario":"teste",
     "senha":"teste",
     }
-  );
+  );*/
 
 
 }

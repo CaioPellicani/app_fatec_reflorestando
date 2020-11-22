@@ -10,8 +10,7 @@ class TextBox extends StatelessWidget {
   bool _senha = false;
   String _label;
 
-
-  TextBox({ String label, String teclado, this.formKey, this.validador  }){
+  TextBox( { texto, String label, String teclado, this.formKey, this.validador }){
     this._label = label;
 
     if (teclado != null) {
@@ -49,7 +48,8 @@ class TxtLogin extends TextBox{
   final formKey;
   final Function validador;
 
-  TxtLogin( bool senha, { String label, this.formKey, this.validador  } ) : super( label: label,  ){
+  TxtLogin( bool senha, { String label, this.formKey, this.validador, String texto  } ) : super( label: label,  ){
+    _controle.text = texto;
     this._senha = senha;
   }
 
@@ -66,5 +66,6 @@ class TxtLogin extends TextBox{
     }
     return false;
   }
+
 }
 

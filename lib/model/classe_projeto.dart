@@ -1,4 +1,4 @@
-import 'model/arvore.dart';
+import 'arvore.dart';
 class ProjetoReflorestamento{
 
 /*  String _nomeProjeto;
@@ -32,27 +32,15 @@ class ProjetoReflorestamento{
     _addEspecie('Seringueira', 'Hevea brasiliensis', 'Secundária');
     _addEspecie('Tucumã', 'Astrocaryum aculeatum', 'Secundária');
   }
-  get getEspeciesLenght{
-    return listaArvores.length; 
-  }
+  get especiesLenght => listaArvores.length; 
 
-  bool getCheckBox( int i ){
-    return listaArvores[i].checkBoxState;  
-  }
+  bool checkBoxState( int i ) => listaArvores[i].checkBoxState;  
 
-  void setCheckBox( int i, bool checkBox ){
-    listaArvores[i].setCheckBoxState = checkBox;
-  }
+  void setCheckBox( int i, bool checkBox ) => listaArvores[i].setCheckBoxState = checkBox;
 
-  String getNomePopular( int i ){
-    return listaArvores[i].nomePopular;   
-  }  
+  String nomePopular( int i ) => listaArvores[i].nomePopular;   
 
-  String getNomeCientifico( int i ){
-    return listaArvores[i].nomeCientifico;
-  }  
+  String nomeCientifico( int i ) => listaArvores[i].nomeCientifico;
 
-  String getFuncaoEcologica( int i ){
-    return listaArvores[i].funcaoEcologica; 
-  }  
+  String funcaoEcologica( int i ) => listaArvores[i].funcaoEcologica; 
 }

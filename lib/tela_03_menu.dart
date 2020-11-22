@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'main.dart';
 import 'meus_widgets.dart';
 import 'classe_botao.dart';
-import 'classe_projeto.dart';
+import 'model/classe_projeto.dart';
 
 class Tela_03_Menu extends StatelessWidget {
   @override

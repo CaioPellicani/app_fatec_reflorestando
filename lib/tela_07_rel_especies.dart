@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
 import 'main.dart';
-import 'classe_projeto.dart';
+import 'model/classe_projeto.dart';
 import 'classe_botao.dart';
 
 class Tela_07_RelEspecies extends StatefulWidget {
@@ -39,11 +39,11 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
         child: ListView.separated( 
           itemBuilder: (context,index){
             return CheckboxListTile(
-              title: Text( oProjeto.getNomePopular(index) ),
-              subtitle: Text( oProjeto.getNomeCientifico(index), style: TextStyle( fontStyle: FontStyle.italic),),
-              secondary: Image.asset("imagens/${oProjeto.getCheckBox(index)}_${oProjeto.getFuncaoEcologica(index)}.png", scale: 4 ),
+              title: Text( oProjeto.nomePopular(index) ),
+              subtitle: Text( oProjeto.nomeCientifico(index), style: TextStyle( fontStyle: FontStyle.italic),),
+              secondary: Image.asset("imagens/${oProjeto.checkBoxState(index)}_${oProjeto.funcaoEcologica(index)}.png", scale: 4 ),
               controlAffinity: ListTileControlAffinity.leading,
-              value: oProjeto.getCheckBox(index),
+              value: oProjeto.checkBoxState(index),
               onChanged: ( bool value ){             
                 setState(( ) {     
                   oProjeto.setCheckBox( index, value );  
@@ -55,7 +55,7 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
           separatorBuilder: (context, index){
             return Divider(thickness: 1, color: Colors.grey);
           },
-          itemCount: oProjeto.getEspeciesLenght
+          itemCount: oProjeto.especiesLenght
         ),
 
       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'meus_widgets.dart';
-import 'classe_projeto.dart';
+import 'model/classe_projeto.dart';
 import 'classe_botao.dart';
 
 //#########################

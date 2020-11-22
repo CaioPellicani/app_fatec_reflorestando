@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:p1_app_reflorestar/classe_botao.dart';
 import 'meus_widgets.dart';
-import 'classe_projeto.dart';
+import 'model/classe_projeto.dart';
 import 'classe_text_box.dart';
 
 class Tela_04_Bioma extends StatefulWidget {

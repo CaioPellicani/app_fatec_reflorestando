@@ -1,3 +1,6 @@
+import 'dart:async';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:p1_app_reflorestar/classe_botao.dart';
 import 'classe_text_box.dart';
@@ -15,8 +18,21 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
   TxtLogin oTxtSenha;
   var scaffoldKey = GlobalKey<ScaffoldState>();
   var formKey = GlobalKey<FormState>();
-  
+
+  StreamSubscription<QuerySnapshot> ouvidor;  
+  var db = FirebaseFirestore.instance;
   @override
+
+  void initState(){
+    super.initState();
+
+    ouvidor?.cancel();
+
+    ouvidor = db.collection("usuarios").snapshots().listen((result) {
+      print( result );
+    });
+
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +51,11 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
                 child:  Image.asset("imagens/forest.png", scale: 3, )
               ),
 
-              oTxtUsuario = TxtLogin( false, label: "Usuário", 
+              oTxtUsuario = TxtLogin( 
+                
+                false, 
+                texto: "Caio",
+                label: "Usuário", 
                 //formKey: formKey,
                 validador: (value){
                   if( value.isEmpity){
@@ -45,7 +65,10 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
                 },
               ),
 
-              oTxtSenha = TxtLogin( true, label: "Senha", 
+              oTxtSenha = TxtLogin( 
+                true, 
+                texto: "123",
+                label: "Senha", 
                 //formKey: formKey,
                 validador: (value){
                   if( value.isEmpity){
@@ -74,5 +97,6 @@ class _Tela_01_LoginState extends State<Tela_01_Login>{
       ),
     );
   }
+
 }
 
