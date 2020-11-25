@@ -1,46 +1,50 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'arvore.dart';
+
 class ProjetoReflorestamento{
-
-/*  String _nomeProjeto;
+  String _nomeProjeto;
   String _bioma;
-  bool _margemDeRio;
-  bool _topoDeMorro;
-  double _percentDeclividade;
-  double _percentArido;
-  double _percentUmido;
-  double _percentMisto;
-  double _areaTotal;
-  double _distanciaCovas;
-*/
+  String _app;
+  String _modeloFloretal;
+  String _percentArido;
+  String _percentUmido;
+  String _percentMisto;
+  String _areaTotal;
+  String _distanciaCovas;
 
-  List<Arvore> listaArvores = [];
+  List<Arvore> _listaArvores = [];
+  String _idArvores;
 
-  void _addEspecie(String nomePopular, String nomeCientifico, String funcaoEcologica){
-    listaArvores.add( 
-      Arvore(
-        nomeCientifico: nomeCientifico,
-        nomePopular: nomePopular,
-        funcaoEcologica: funcaoEcologica,
-      ) 
+  set setNomeProjeto( nomeProjeto ) => _nomeProjeto = nomeProjeto;
+  set setBioma( bioma ) => _bioma = bioma;
+  set setApp( app ) => _app = app;
+  set setArido( percentArido ) => _percentArido = percentArido;
+  set setUmido( percentUmido ) => _percentUmido = percentUmido;  
+  set setMisto( percentMisto ) => _percentMisto = percentMisto;
+  set setArea( areaTotal ) => _areaTotal = areaTotal;
+  set setDistancia( distanciaCovas ) => _distanciaCovas = distanciaCovas;
+  set setModeloFlorestal( modeloFloretal ) => _modeloFloretal = modeloFloretal;
+  set setListaArvores( listaArvores ) => _listaArvores = listaArvores;  
+
+  void finalizarProjeto(){
+
+  FirebaseFirestore.instance.collection("projetos").add(
+      {
+        "nomeProjeto":_nomeProjeto,
+        "bioma":_bioma,
+        "app":_app,
+        "modeloFloretal":_modeloFloretal,
+        "percentArido":_percentArido,
+        "percentUmido":_percentUmido,
+        "percentMisto":_percentMisto,
+        "areaTotal":_areaTotal,
+        "distanciaCovas":_distanciaCovas,
+        "listaEspecies": this.carregarEspecies(),
+      }
     );
   }
 
-  void carregarEspecies(){
-    _addEspecie('Paricá', 'Schizolobium amazonicum', 'Primária');
-    _addEspecie('Ipê-Amarelo', 'Handroanthus serratifolius', 'Secundária');
-    _addEspecie('Copaíba', 'Copaifera glycycarpa', 'Climax');
-    _addEspecie('Seringueira', 'Hevea brasiliensis', 'Secundária');
-    _addEspecie('Tucumã', 'Astrocaryum aculeatum', 'Secundária');
+  String carregarEspecies(){
+    return _listaArvores.map( (e) => e.id ).toString();
   }
-  get especiesLenght => listaArvores.length; 
-
-  bool checkBoxState( int i ) => listaArvores[i].checkBoxState;  
-
-  void setCheckBox( int i, bool checkBox ) => listaArvores[i].setCheckBoxState = checkBox;
-
-  String nomePopular( int i ) => listaArvores[i].nomePopular;   
-
-  String nomeCientifico( int i ) => listaArvores[i].nomeCientifico;
-
-  String funcaoEcologica( int i ) => listaArvores[i].funcaoEcologica; 
 }

@@ -46,7 +46,17 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
       appBar: barraPadrao("Bioma e Terreno"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
-
+      bottomNavigationBar: Botao(
+        label: 'Prosseguir', 
+        acao: (){
+          oProjeto.setBioma = txtBioma;
+          oProjeto.setApp = txtApp;
+          oProjeto.setArido = oArido.text;
+          oProjeto.setUmido = oUmido.text;
+          oProjeto.setMisto = oMisto.text;          
+          Navigator.pushNamed( context, "/tela_05", arguments: oProjeto );
+        }, 
+      ),
       body: Container(  
         child: ListView(
           shrinkWrap: true,
@@ -56,13 +66,6 @@ class _Tela_04_BiomaState extends State<Tela_04_Bioma>{
             oArido = TextBox( label: "Pecentual de Solo Úmido ( % )", teclado: "Numerico", ),
             oUmido = TextBox( label: "Pecentual de Solo Árido ( % )", teclado: "numerico", ),
             oMisto = TextBox( label: "Pecentual de Solo Misto ( % )", teclado: "numerico", ),
-            Botao(
-              label: 'Prosseguir', 
-              acao: (){
-                Navigator.pushNamed( context, "/tela_05", arguments: oProjeto );
-              }, 
-            ),
-            SizedBox( height: 40 ,),
           ],
         ),
       ),  

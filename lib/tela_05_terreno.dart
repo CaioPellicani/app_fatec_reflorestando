@@ -11,18 +11,18 @@ class Tela_05_Terreno extends StatefulWidget {
 }
 
 class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
-    var radioGrupo;
+    var modeloFlorestalSelecionado;
     var scaffoldKey = GlobalKey<ScaffoldState>();
     List<String> modeloFlorestal = [];
 
   @override
 
     void initState(){
-      modeloFlorestal.add( 'PSC.png' );
-      modeloFlorestal.add( 'PSSC.png');
+      modeloFlorestal.add( 'PSC' );
+      modeloFlorestal.add( 'PSSC');
 
       super.initState();
-      radioGrupo = 0;
+      modeloFlorestalSelecionado = 0;
     }
 
   Widget build(BuildContext context) {
@@ -41,6 +41,16 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
          appBar: barraPadrao("Terreno e Modelo"),
       drawer: menuBarra(context),
       drawerEnableOpenDragGesture: false,
+      bottomNavigationBar: Botao(
+        label: 'Prosseguir', 
+        acao: (){
+          oProjeto.setNomeProjeto = oNomeProjeto.text;
+          oProjeto.setArea = oArea.text;
+          oProjeto.setDistancia = oDistancia.text;
+          oProjeto.setModeloFlorestal = modeloFlorestal[ modeloFlorestalSelecionado ];
+          Navigator.pushNamed( context, "/tela_07", arguments: oProjeto );
+        }, 
+      ),
 
       body: Center(
         child: Container(
@@ -69,13 +79,13 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                           border: Border.all(color: Colors.grey, width: 2),
                           borderRadius: BorderRadius.all( Radius.circular(10)) 
                         ),
-                        child: Image.asset('imagens/${modeloFlorestal[0]}' , scale: 2)),
+                        child: Image.asset('imagens/${modeloFlorestal[0]}.png' , scale: 2)),
                       value: 0,
-                      groupValue: radioGrupo,
+                      groupValue: modeloFlorestalSelecionado,
                       activeColor: Theme.of(context).primaryColor,
                       onChanged: ( value ){
                         setState(() {
-                          radioGrupo = value;
+                          modeloFlorestalSelecionado = value;
                         });
                       },
                     ),
@@ -88,11 +98,11 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                           borderRadius: BorderRadius.all( Radius.circular(10)) 
                         ),
                       child: Image.asset('imagens/${modeloFlorestal[1]}' , scale: 2)),                     value: 1,
-                      groupValue: radioGrupo,
+                      groupValue: modeloFlorestalSelecionado,
                       activeColor: Theme.of(context).primaryColor,
                       onChanged: ( value){
                         setState(() {
-                          radioGrupo = value;
+                          modeloFlorestalSelecionado = value;
                         });
                       },
                     ),
@@ -108,15 +118,6 @@ class _Tela_05_TerrenoState extends State<Tela_05_Terreno>{
                   ],
                 ),
               ),
-
-              Botao(
-                label: 'Prosseguir', 
-                acao: (){
-                  oProjeto.carregarEspecies();
-                  Navigator.pushNamed( context, "/tela_07", arguments: oProjeto );
-                }, 
-              ),
-              SizedBox( height: 40 ,),
             ],
           ),
         ),

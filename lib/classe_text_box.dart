@@ -39,9 +39,7 @@ class TextBox extends StatelessWidget {
       ),
     );
   }
-  get controle{
-    return _controle.text;
-  }
+  get text => _controle.text;
 }
 
 class TxtLogin extends TextBox{

@@ -9,6 +9,7 @@ import 'tela_05_terreno.dart';
 import 'tela_06_rel_preliminar.dart';
 import 'tela_07_rel_especies.dart';
 import 'tela_08_exportar.dart';
+import 'model/usuario.dart';
 
 const double valorPadding = 20;
 
@@ -19,7 +20,7 @@ void main() async {
   //registrar firebase 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-    
+  
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -46,15 +47,17 @@ void main() async {
   );
 
 
-  var db = FirebaseFirestore.instance;
-  ///db.collection("usuarios").add(
-  /*  {
-    "empresa":"teste",
+ /* FirebaseFirestore.instance.collection("usuarios").add(
+    {
     "usuario":"teste",
     "senha":"teste",
     }
-  );*/
-
+  );
+*/
+  var o = Usuario();
+  o.query( "Caio" );
+  print( o.senha );
+  print( o.testeSenha() );
 
 }
 
