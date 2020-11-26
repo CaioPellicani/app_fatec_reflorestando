@@ -54,10 +54,6 @@ void main() async {
     }
   );
 */
-  var o = Usuario();
-  o.query( "Caio" );
-  print( o.senha );
-  print( o.testeSenha() );
 
 }
 

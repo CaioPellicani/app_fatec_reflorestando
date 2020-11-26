@@ -50,20 +50,5 @@ class TxtLogin extends TextBox{
     _controle.text = texto;
     this._senha = senha;
   }
-
-  bool validarLogin(){
-    if( _controle.text == "Caio" ){
-      return true;
-    }
-    return false;
-  }
-
-  bool validarSenha(){
-    if( _controle.text == "123" ){
-      return true;
-    }
-    return false;
-  }
-
 }
 

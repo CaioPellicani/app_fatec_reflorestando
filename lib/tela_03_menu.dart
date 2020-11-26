@@ -9,7 +9,11 @@ class Tela_03_Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: barraPadrao("Menu de Opções"),
+      appBar: AppBar(
+        title: Text("Menu de Opções"),
+        centerTitle: true,
+        leading: Container()
+      ),
 
       body: Container(
         child: Center(
