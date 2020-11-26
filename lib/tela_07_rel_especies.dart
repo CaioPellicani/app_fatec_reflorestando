@@ -50,6 +50,7 @@ class _Tela_07_RelEspeciesState extends State<Tela_07_RelEspecies>{
         child: Botao(
           label: 'Finalizar Projeto', 
           acao: (){
+            listaArvores.forEach((arvore) => db.doc(arvore.id).update( { "checkbox":arvore.checkBoxState } ) );
             oProjeto.setListaArvores = listaArvores;
             oProjeto.finalizarProjeto();
             Navigator.pushNamed( context, "/tela_08", arguments: oProjeto );

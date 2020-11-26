@@ -18,7 +18,7 @@ class Arvore {
     this._nomeCientifico = map['nomeCientifico'];
     this._nomePopular = map['nomePopular'];
     this._funcaoEcologica = map['funcaoEcologica'];
-    this._checkBoxState = true;
+    this._checkBoxState = map['checkbox'];
   }
   
   get id => this._id;

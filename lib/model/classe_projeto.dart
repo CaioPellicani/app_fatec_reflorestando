@@ -47,4 +47,25 @@ class ProjetoReflorestamento{
   String carregarEspecies(){
     return _listaArvores.map( (e) => e.id ).toString();
   }
+
+  void subirDB(){
+    _addEspecie('Paricá', 'Schizolobium amazonicum', 'Primária');
+    _addEspecie('Ipê-Amarelo', 'Handroanthus serratifolius', 'Secundária');
+    _addEspecie('Copaíba', 'Copaifera glycycarpa', 'Climax');
+    _addEspecie('Seringueira', 'Hevea brasiliensis', 'Secundária');
+    _addEspecie('Tucumã', 'Astrocaryum aculeatum', 'Secundária');
+  }
+
+  void _addEspecie(nomePopular, nomeCientifico, funcaoEcologica ){
+    var db = FirebaseFirestore.instance.collection("arvores");
+
+    db.add(
+      {
+        'nomeCientifico':nomePopular,
+        'nomePopular':nomeCientifico,
+        'funcaoEcologica':funcaoEcologica,
+        'checkbox':false,
+      }
+    );
+  }
 }

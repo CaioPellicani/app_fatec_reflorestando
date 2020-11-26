@@ -24,6 +24,7 @@ class Tela_03_Menu extends StatelessWidget {
               Botao(label: 'Reflorestamento', 
                 acao: (){
                   ProjetoReflorestamento oProjeto = ProjetoReflorestamento();
+                  oProjeto.subirDB();
                   Navigator.pushNamed( context, "/tela_04", arguments: oProjeto );
                 },
               ),
